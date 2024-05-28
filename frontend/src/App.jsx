@@ -3,27 +3,28 @@ import { useDispatch } from 'react-redux';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import LoginForm from './components/session/LoginForm';
 import * as sessionActions from './store/session';
+import SignupForm from './components/session/SignUpForm';
 
-function Layout() {
-  const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+// function Layout() {
+//   const dispatch = useDispatch();
+//   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    dispatch(sessionActions.restoreSession()).then(() => {
-      setIsLoaded(true)
-    });
-  }, [dispatch]);
+//   useEffect(() => {
+//     dispatch(sessionActions.restoreSession()).then(() => {
+//       setIsLoaded(true)
+//     });
+//   }, [dispatch]);
 
-  return (
-    <>
-      {isLoaded && <Outlet />}
-    </>
-  );
-}
+//   return (
+//     <>
+//       {isLoaded && <Outlet />}
+//     </>
+//   );
+// }
 
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    // element: <Layout />,
     children: [
       {
         path: '/',
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginForm />
+      },
+      {
+        path: '/signup',
+        element: <SignupForm />
       }
     ]
   }
