@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: amazonia_production
-  username: amazonia
-  password: <%= ENV["AMAZONIA_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

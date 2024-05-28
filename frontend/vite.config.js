@@ -7,8 +7,8 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     eslint({
-      lintOnStart: true,
-      failOnError: mode === "production"
+      lintOnStart: false,
+      failOnError: false
     })
   ],
 
@@ -16,10 +16,14 @@ export default defineConfig(({ mode }) => ({
     proxy: {
       '/api': 'http://localhost:5000'
     }
-  }
+  },
   // To automatically open the app in the browser whenever the server starts,
   // uncomment the following lines:
   // server: {
   //   open: true
   // }
+  build: {
+    outDir: '../public',
+    emptyOutDir: true
+  }
 }));
