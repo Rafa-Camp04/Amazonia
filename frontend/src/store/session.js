@@ -1,4 +1,4 @@
-import { csrfFetch } from './csrf';
+import csrfFetch from './csrf'
 
 // Action types
 const SET_SESSION_USER = 'session/setSessionUser';
@@ -16,19 +16,28 @@ export const removeSessionUser = () => ({
 })
 
 
-// Thunk Action
-export const login = ({email, password}) => async (dispatch) => {
-    const res = await csrfFetch('/api/session', {
-        method: 'POST',
-        body: JSON.stringify({email, password})
+const storeCSRFToken = response => {
+    const csrfToken = response.headers.get("X-CSRF-Token");
+    if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+  };
+  
+  export const restoreSession = () => async dispatch => {
+    const response = await csrfFetch("/api/session");
+    storeCSRFToken(response);
+    const data = await response.json();
+    dispatch(setSessionUser(data.user));
+    return response;
+  };
+  
+  export const login = ({ email, password }) => async dispatch => {
+    const response = await csrfFetch("/api/session", {
+      method: "POST",
+      body: JSON.stringify({ email, password })
     });
-
-    if (res.ok) {
-        const data = res.json();
-        dispatch(setSessionUser(data.user));
-    }
-
-};
+    const data = await response.json();
+    dispatch(setSessionUser(data.user));
+    return response;
+  };
 
 const preloadedState = {
     user: null

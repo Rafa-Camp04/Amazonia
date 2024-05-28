@@ -1,0 +1,13 @@
+h1 {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    font-family: 'Amazon Ember', Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-size: 13px;
+    line-height: 19px;
+    color: #111;
+    font-family: Arial, sans-serif;
+}
