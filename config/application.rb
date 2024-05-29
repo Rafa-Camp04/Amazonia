@@ -23,6 +23,8 @@ module Amazonia
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
+    config.railties_order = [:all, :main_app]
+
     module AuthenticateMe
       class Application < Rails::Application
         # ...

@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "3.1.1"
 gem "bcrypt"
 gem "jbuilder"
+gem 'faker'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.3"
@@ -40,7 +41,6 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "byebug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
-  gem 'faker'
 end
 
 group :development do
