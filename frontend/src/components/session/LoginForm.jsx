@@ -3,7 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import './LoginForm.css';
-import amazonBlackLogo from '../../../../frontend/media/amazon-logo-black.png'
+import amazonBlackLogo from '../../../../frontend/media/amazon-logo-black.png';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -47,29 +47,42 @@ function LoginForm() {
             {errors.map(error => <li key={error}>{error}</li>)}
           </ul>
 
-          <label>
-            Email
-            <input
-              className='sign-in-input'
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
+          <label className='sign-in-form-label'>Email</label>
+          <br/>
 
-          <label>
-            Password
-            <input
-              className='sign-in-input'
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
+          <input
+            className='sign-in-form-input'
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <br/>
+          <br/>
 
-          <button id='sign-in-button' type="submit">Sign In</button>
+          <label className='sign-in-form-label'>Password</label>
+          <br/>
+
+          <input
+            className='sign-in-form-input'
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <br/>
+          <br/>
+
+          <button className='sign-in-form-button' type="submit">Sign In</button>
+          <br/>
+          <br/>
+          <button className='sign-in-form-button'>Demo User</button>
+
+          <br/>
+          <br/>
+
+          <div id='text-under-form'><p>By continuing, you agree to Amazonia's Conditions of Use and Privacy Notice.</p></div>
+
         </form>
       </div>
     </>

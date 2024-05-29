@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignUpForm.css';
+import amazonBlackLogo from '../../../../frontend/media/amazon-logo-black.png';
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -37,40 +38,76 @@ function SignupForm() {
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <label>
-          Email
+      <div className='sign-in-header'>
+        <img className='black-logo' src={amazonBlackLogo} />
+      </div>
+
+      <div className='sign-up-block'>
+        <form onSubmit={handleSubmit}>
+
+          <h1>Create account</h1>
+
+          <ul>
+            {errors.map(error => <li key={error}>{error}</li>)}
+          </ul>
+
+          <label className='sign-in-form-label'>Email</label>
+          <br/>
+
           <input
+            className='sign-up-form-input'
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
+          <br/>
+          <br/>
+
+          <label className='sign-in-form-label'>Password</label>
+          <br/>
+
           <input
+            className='sign-up-form-input'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Confirm Password
+          <br/>
+          <br/>
+
+          <label className='sign-in-form-label'>Re-enter password</label>
+          <br/>
+
           <input
+            className='sign-up-form-input'
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
+          <br/>
+          <br/>
+
+          <button className='sign-in-form-button' type="submit">Sign Up</button>
+          <br/>
+
+          <br/>
+          <br/>
+
+          <div id='text-under-form'><p>By continuing, you agree to Amazonia's Conditions of Use and Privacy Notice.</p></div>
+
+          <br/>
+          <br/>
+          <br/>
+
+          <div id='text-with-link'>
+            <p>Already have an account? <Link to='/'>Sign In</Link></p>
+          </div>
+        </form>
+      </div>
+
     </>
   );
 }

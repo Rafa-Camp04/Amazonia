@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import ProfileButton from './ProfileButton';
 import * as sessionActions from '../../store/session';
 import './Navigation.css'
 import amazonLogo from '../../../../frontend/media/amazon-logo.png';
@@ -16,9 +15,6 @@ function Navigation() {
 
   const sessionLinks = sessionUser ? (
     <>
-      <li>
-        <ProfileButton user={sessionUser} />
-      </li>
       <li>
         <button onClick={logout}>Log Out</button>
       </li>
@@ -41,14 +37,11 @@ function Navigation() {
       </div>
 
       <div className='nav-fill'>
-
+        
       </div>
 
       <div>
         <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
           {sessionLinks}
         </ul>
       </div>

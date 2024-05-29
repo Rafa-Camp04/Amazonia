@@ -1,3 +1,18 @@
-h2 {
-    color: blue;
+.sign-up-block {
+    width: 312px;
+    height: 435px;
+    border: solid 1px rgb(221, 221, 221);
+    border-radius: 8px;
+    padding: 14px 18px;
+}
+
+#text-with-link {
+    font-size: 13px;
+    font-family: amazonEmber;
+}
+
+.sign-up-form-input {
+    width: 294px;
+    height: 21px;
+    padding: 3px 7px;
 }

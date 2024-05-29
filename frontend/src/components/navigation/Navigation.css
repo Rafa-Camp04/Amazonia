@@ -1,8 +1,10 @@
 .nav-bar {
-    display: flex;
-    width: auto;
     height: 60px;
     background-color: #131921;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
 }
 
 .nav-left {
