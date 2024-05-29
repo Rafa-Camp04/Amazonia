@@ -38,76 +38,95 @@ function SignupForm() {
 
   return (
     <>
-      <div className='sign-in-header'>
-        <Link to={'/'}><img className='black-logo' src={amazonBlackLogo} /></Link>
-      </div>
+      <div id='root'>
+        <div className='sign-in-header'>
+          <Link to={'/'}><img className='black-logo' src={amazonBlackLogo} /></Link>
+        </div>
 
-      <div className='sign-up-block'>
-        <form onSubmit={handleSubmit}>
+        <div id='center-content'>
 
-          <h1>Create account</h1>
+          {errors.length > 0 && (
+            <div className='error-div'>
+              <div id='inner-error-div'>
+                <h4 id='alert-heading'>There was a problem</h4>
+                <ul className='error-text'>
+                  {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+              </div>
+            </div>
+          )}
 
-          <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
-          </ul>
+          <div className='sign-up-block'>
+            <form onSubmit={handleSubmit}>
 
-          <label className='sign-in-form-label'>Email</label>
-          <br/>
+              <h1>Create account</h1>
 
-          <input
-            className='sign-up-form-input'
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <br/>
-          <br/>
+              <label className='sign-in-form-label'>Email</label>
+              <br/>
 
-          <label className='sign-in-form-label'>Password</label>
-          <br/>
+              <input
+                className='sign-up-form-input'
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <br/>
+              <br/>
 
-          <input
-            className='sign-up-form-input'
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <br/>
-          <br/>
+              <label className='sign-in-form-label'>Password</label>
+              <br/>
 
-          <label className='sign-in-form-label'>Re-enter password</label>
-          <br/>
+              <input
+                className='sign-up-form-input'
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <br/>
+              <br/>
 
-          <input
-            className='sign-up-form-input'
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          <br/>
-          <br/>
+              <label className='sign-in-form-label'>Re-enter password</label>
+              <br/>
 
-          <button className='sign-up-form-button' type="submit">Sign Up</button>
-          <br/>
+              <input
+                className='sign-up-form-input'
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <br/>
+              <br/>
 
-          <br/>
-          <br/>
+              <button className='sign-up-form-button' type="submit">Sign Up</button>
+              <br/>
 
-          <div id='text-under-form'><p>By continuing, you agree to Amazonia's Conditions of Use and Privacy Notice.</p></div>
+              <br/>
+              <br/>
 
-          <br/>
-          <br/>
-          <br/>
+              <div id='text-under-form'><p>By continuing, you agree to Amazonia's Conditions of Use and Privacy Notice.</p></div>
 
-          <div id='text-with-link'>
-            <p>Already have an account? <Link to='/login'>Sign In</Link></p>
+              <br/>
+              <br/>
+              <br/>
+
+              <div id='text-with-link'>
+                <p>Already have an account? <Link to='/login'>Sign In</Link></p>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
+        </div>
 
+        <br/>
+        <br/>
+
+        <div id='footer'>
+          <div id='inner-footer'></div>
+        </div>
+
+      </div>
     </>
   );
 }

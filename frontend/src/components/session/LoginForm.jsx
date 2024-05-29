@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Link } from 'react-router-dom';
+import { Navigate, Link, useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 import amazonBlackLogo from '../../../../frontend/media/amazon-logo-black.png';
 
@@ -11,6 +11,7 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
@@ -32,6 +33,19 @@ function LoginForm() {
       });
   }
 
+  const handleSignUpRedirect = () => {
+    navigate('/signup');
+  };
+
+  const handleDemoUserLogin = () => {
+    const demoEmail = 'demo@example.com';
+    const demoPassword = 'password';
+    setEmail(demoEmail);
+    setPassword(demoPassword);
+    // Optionally, directly submit the form
+    handleSubmit({ preventDefault: () => {} });
+  };
+
   return (
     <div id='root'>
       <div className='sign-in-header'>
@@ -39,14 +53,22 @@ function LoginForm() {
       </div>
 
       <div id='center-content'>
+
+        {errors.length > 0 && (
+          <div className='error-div'>
+            <div id='inner-error-div'>
+              <h4 id='alert-heading'>There was a problem</h4>
+              <ul className='error-text'>
+                {errors.map(error => <li key={error}>{error}</li>)}
+              </ul>
+            </div>
+          </div>
+        )}
+
         <div className='sign-in-block'>
           <form onSubmit={handleSubmit}>
 
             <h1>Sign in</h1>
-
-            <ul>
-              {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
 
             <label className='sign-in-form-label'>Email</label>
             <br/>
@@ -77,7 +99,7 @@ function LoginForm() {
             <button className='sign-in-form-button' type="submit">Sign In</button>
             <br/>
             <br/>
-            <button className='sign-in-form-button'>Demo User</button>
+            <button type='button' className='sign-in-form-button' onClick={handleDemoUserLogin}>Demo User</button>
 
             <br/>
             <br/>
@@ -94,11 +116,9 @@ function LoginForm() {
           <div id='line'></div>
         </div>
 
-        <span id='bottom-button'>
-          <span>
-            <a id='link-to-sign-up'>Create your Amazonia account</a>
-          </span>
-        </span>
+        <button id='bottom-button' onClick={handleSignUpRedirect}>
+          <span>Create your Amazonia account</span>
+        </button>
       </div>
 
       <br/>

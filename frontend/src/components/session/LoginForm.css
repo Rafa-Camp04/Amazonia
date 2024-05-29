@@ -100,6 +100,7 @@ body {
     border-width: 1px;
     border-color: #D5D9D9;
     border-radius: 8px;
+    background-color: white;
 }
 
 #bottom-button:hover {
@@ -171,4 +172,28 @@ h5 {
     background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
     z-index: 1;
     content: "";
+}
+
+.error-div {
+    width: 348px;
+    height: auto;
+    border: #c40000;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 8px;
+    margin-bottom: 14px !important;
+}
+
+#inner-error-div {
+    height: auto;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 4px #fcf4f4 inset;
+    padding: 14px 18px 14px 63px;
+}
+
+#alert-heading {
+    color: #c40000;
+    font-size: 17px;
+    padding-bottom: 6px;
 }
