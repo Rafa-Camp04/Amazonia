@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css'
 import amazonLogo from '../../../../frontend/media/amazon-logo.png';
+import {RiSearchLine} from 'react-icons/ri';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -12,6 +13,11 @@ function Navigation() {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('FORM IS WORKING, YOU DONT HAVE TO CLICK AGAIN')
+  }
 
   const sessionLinks = sessionUser ? (
     <>
@@ -36,11 +42,16 @@ function Navigation() {
         <img className='logo' src={amazonLogo} alt='Amazon Logo' />
       </div>
 
-      <div className='nav-fill'>
-        
+      <div className='nav-search'>
+        <form id='nav-bar-search-form' onSubmit={handleSubmit}>
+          <input type='text' id='search-area' placeholder="  Search Amazonia"></input>
+          <button type='submit' id='search-button'>
+            <RiSearchLine className='search-icon'/>
+          </button>
+        </form>
       </div>
 
-      <div>
+      <div className='nav-links'>
         <ul>
           {sessionLinks}
         </ul>

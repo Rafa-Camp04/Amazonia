@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Link, useNavigate } from 'react-router-dom';
@@ -12,6 +12,14 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
+  const [isDemoLogin, setIsDemoLogin] = useState(false);
+
+  useEffect(() => {
+    if (isDemoLogin) {
+      handleSubmit({ preventDefault: () => {} });
+      setIsDemoLogin(false);
+    }
+  }, [email, password, isDemoLogin]);
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
@@ -38,12 +46,9 @@ function LoginForm() {
   };
 
   const handleDemoUserLogin = () => {
-    const demoEmail = 'demo@example.com';
-    const demoPassword = 'password';
-    setEmail(demoEmail);
-    setPassword(demoPassword);
-    // Optionally, directly submit the form
-    handleSubmit({ preventDefault: () => {} });
+    setEmail('demo@example.com');
+    setPassword('password');
+    setIsDemoLogin(true);
   };
 
   return (
