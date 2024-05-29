@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import './LoginForm.css';
+import amazonBlackLogo from '../../../../frontend/media/amazon-logo-black.png'
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -33,35 +34,44 @@ function LoginForm() {
 
   return (
     <>
-      <h1>Sign in</h1>
-      <form onSubmit={handleSubmit}>
+      <div className='sign-in-header'>
+        <img className='black-logo' src={amazonBlackLogo} />
+      </div>
 
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
+      <div className='sign-in-block'>
+        <form onSubmit={handleSubmit}>
 
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
+          <h1>Sign in</h1>
 
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
+          <ul>
+            {errors.map(error => <li key={error}>{error}</li>)}
+          </ul>
 
-        <button type="submit">Log In</button>
-      </form>
+          <label>
+            Email
+            <input
+              className='sign-in-input'
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+
+          <label>
+            Password
+            <input
+              className='sign-in-input'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+
+          <button id='sign-in-button' type="submit">Sign In</button>
+        </form>
+      </div>
     </>
   );
 }

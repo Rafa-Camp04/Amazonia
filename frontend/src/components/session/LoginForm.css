@@ -2,12 +2,60 @@ h1 {
     font-weight: 400;
     font-size: 28px;
     line-height: 1.2;
-    font-family: 'Amazon Ember', Arial, Helvetica, sans-serif;
+    margin-bottom: 10px !important;
+}
+
+@font-face {
+    font-family: amazonEmber;
+    src: url(../../../../frontend/media/amazon-ember/Amazon-Ember.ttf);
+}
+
+label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111111;
+    padding: 0px 0px 2px 2px;
 }
 
 body {
+    display: flex;
+    justify-content: center;
     font-size: 13px;
     line-height: 19px;
     color: #111;
-    font-family: Arial, sans-serif;
+    font-family: amazonEmber;
+}
+
+.sign-in-header {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 60px;
+}
+
+.black-logo {
+    width: auto;
+    height: 40px;
+    margin-top: 15px;
+}
+
+.sign-in-block {
+    width: 296px;
+    height: 318px;
+    border: solid 1px rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 20px 26px;
+}
+
+#sign-in-button {
+    width: 296px;
+    height: 31px;
+    background: #F7CA2C;
+    background-color: #FCD200;
+    border: 0px;
+    border-radius: 8px;
+}
+
+.sign-in-input {
+    width: auto;
 }
