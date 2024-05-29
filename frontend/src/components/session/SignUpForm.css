@@ -16,3 +16,17 @@
     height: 21px;
     padding: 3px 7px;
 }
+
+.sign-up-form-button {
+    width: 312px;
+    height: 31px;
+    background: #F7CA2C;
+    background-color: #FCD200;
+    border: 0px;
+    border-radius: 8px;
+}
+
+.sign-up-form-button:hover {
+    background-color: #e6bf00;
+    cursor: pointer;
+}

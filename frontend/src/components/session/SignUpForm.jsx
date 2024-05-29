@@ -39,7 +39,7 @@ function SignupForm() {
   return (
     <>
       <div className='sign-in-header'>
-        <img className='black-logo' src={amazonBlackLogo} />
+        <Link to={'/'}><img className='black-logo' src={amazonBlackLogo} /></Link>
       </div>
 
       <div className='sign-up-block'>
@@ -90,7 +90,7 @@ function SignupForm() {
           <br/>
           <br/>
 
-          <button className='sign-in-form-button' type="submit">Sign Up</button>
+          <button className='sign-up-form-button' type="submit">Sign Up</button>
           <br/>
 
           <br/>
@@ -103,7 +103,7 @@ function SignupForm() {
           <br/>
 
           <div id='text-with-link'>
-            <p>Already have an account? <Link to='/'>Sign In</Link></p>
+            <p>Already have an account? <Link to='/login'>Sign In</Link></p>
           </div>
         </form>
       </div>
