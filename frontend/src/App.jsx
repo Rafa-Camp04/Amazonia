@@ -5,7 +5,7 @@ import LoginForm from './components/session/LoginForm';
 import SignUpForm from './components/session/SignUpForm';
 import Navigation from './components/navigation/Navigation';
 import * as sessionActions from './store/session';
-import ProductsIndex from './components/home/ProductsIndex'
+import ProductsIndex from './components/product/ProductsIndex'
 
 function Layout() {
   const dispatch = useDispatch();
