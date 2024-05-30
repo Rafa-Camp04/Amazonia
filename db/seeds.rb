@@ -11,10 +11,12 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
+    Product.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('products')
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -30,6 +32,44 @@ ApplicationRecord.transaction do
         password: 'password'
       }) 
     end
+
+    puts "Creating products..."
+
+    Product.create!({
+      name: 'Apple iPad Air (5th Generation)',
+      price: 549.99,
+      description: "This is the description for product 1."
+    })
+
+    Product.create!({
+      name: 'Sunglasses Men Polarized',
+      price: 89.99,
+      description: "This is the description for product 2."
+    })
+
+    Product.create!({
+      name: 'Braun Electric Razor for Men',
+      price: 179.99,
+      description: "This is the description for product 3."
+    })
+
+    Product.create!({
+      name: 'Technics Wireless Noise Cancelling Headphones',
+      price: 119.99,
+      description: "This is the description for product 4."
+    })
+
+    Product.create!({
+      name: 'Sloosh Bubble Lawn Mower Toddler Toys',
+      price: 29.99,
+      description: "This is the description for product 5."
+    })
+
+    Product.create!({
+      name: 'Hexagon Workout Dumbbell Hand Weight',
+      price: 21.99,
+      description: "This is the description for product 6."
+    })
   
     puts "Done!"
   end
