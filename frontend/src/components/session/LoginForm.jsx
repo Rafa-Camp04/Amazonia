@@ -109,7 +109,7 @@ function LoginForm() {
             <br/>
             <br/>
 
-            <div id='text-under-form'><p>By continuing, you agree to Amazonia's Conditions of Use and Privacy Notice.</p></div>
+            <div id='text-under-form'><p>By continuing, you agree to Amazonia&apos;s Conditions of Use and Privacy Notice.</p></div>
 
           </form>
         </div>
