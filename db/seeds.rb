@@ -70,6 +70,18 @@ ApplicationRecord.transaction do
       price: 21.99,
       description: "This is the description for product 6."
     })
+
+    Product.create!({
+      name: 'Sony OLED 65 inch BRAVIA XR A80L Series 4K Ultra HD TV',
+      price: 1698.00,
+      description: "This is the description for product 7."
+    })
+
+    Product.create!({
+      name: 'Energizer AA Batteries',
+      price: 13.85,
+      description: "This is the description for product 8."
+    })
   
     puts "Done!"
   end

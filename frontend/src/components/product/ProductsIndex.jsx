@@ -9,20 +9,33 @@ function ProductsIndex() {
 
     useEffect(() => {
         dispatch(productActions.indexProducts());
-      }, [dispatch]);
+    }, [dispatch]);
+
+    const productsAll = useSelector(state => state.products);
 
     const productIndexItem = () => {
-        const productsAll = useSelector(state => state.products.products);
+        return Object.values(productsAll).map(product => (
+            <Link key={product.id} className='product-item-link' to={`/products/${product.id}`}>
+                <div className="product-item-div">
+                    <div id='item-image-section'>
 
-        return(
-            <div>
-            </div>
-        )
-    }
+                    </div>
+
+                    <h2>{product.name}</h2>
+                    <p>${product.price}</p>
+                </div>
+            </Link>    
+        ));
+    };
 
     return(
         <div className='product-index-body'>
+
             <form id='items-block'>
+                <div id='carousel'>
+                
+                </div>
+
                 {productIndexItem()}
             </form>
         </div>

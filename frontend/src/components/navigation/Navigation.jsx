@@ -7,9 +7,11 @@ import amazonLogo from '../../../../frontend/media/amazon-logo.png';
 import linkedinLogo from '../../../../frontend/media/linkedin-icon.png';
 import githubLogo from '../../../../frontend/media/github-icon.png';
 import cartIcon from '../../../../frontend/media/cart-icon.png';
+// import { useState } from 'react';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
+  // const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
   const logout = (e) => {

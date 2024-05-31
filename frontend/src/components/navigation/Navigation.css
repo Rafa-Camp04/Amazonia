@@ -137,3 +137,9 @@
     width: 40px;
     height: 40px;
 }
+
+#drop-down {
+    width: 100px;
+    height: 60px;
+    background-color: white;
+}
