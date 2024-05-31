@@ -25,8 +25,27 @@ function ProductShow() {
     return(
         <div id='product-show-page-body'>
             <Navigation />
-            <h1>{item.name}</h1>
-            <p>{item.price}</p>
+            <div id='main-block'>
+                <div id='left-block'>
+                    <div id='image-section'>
+
+                    </div>
+                </div>
+
+                <div id='center-block'>
+                    <div id='description-section'>
+                        <h1>{item.name}</h1>
+                        <p>{item.price}</p>
+                    </div>
+                </div>
+
+                <div id='right-block'>
+                    <div id='checkout-section'>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     )
 
