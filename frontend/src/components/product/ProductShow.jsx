@@ -13,7 +13,7 @@ function ProductShow() {
 
     useEffect(() => {
         dispatch(productActions.showItem(itemId));
-    }, [dispatch]);
+    }, [dispatch, itemId]);
 
     const items = useSelector(state => state.products);
     const item = items[itemId]
@@ -33,10 +33,24 @@ function ProductShow() {
                 </div>
 
                 <div id='center-block'>
-                    <div id='description-section'>
-                        <h1>{item.name}</h1>
-                        <p>{item.price}</p>
+                    <div id='name-section'>
+                        <h3 id='item-name-header'>{item.name}</h3>
                     </div>
+
+                    <div className='division-between-sections'></div>
+
+                    <div id='price-section'>
+                        <p id='price-paragraph'>{item.price}</p>
+                        <p id='shipping-paragraph'>Get <span id='free-shipping-bold-text'>Fast, Free Shipping</span> with Amazonia Prime</p>
+                        <p id='free-returns'>FREE returns</p>
+                    </div>
+
+                    <div className='division-between-sections'></div>
+
+                    <div id='description-section'>
+                        <p>{item.description}</p>
+                    </div>
+
                 </div>
 
                 <div id='right-block'>
@@ -46,6 +60,7 @@ function ProductShow() {
                 </div>
 
             </div>
+
         </div>
     )
 

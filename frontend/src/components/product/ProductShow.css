@@ -3,12 +3,11 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: red;
 }
 
 #main-block {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     margin-top: 60px;
     width: 100%;
     height: 650px;
@@ -17,9 +16,8 @@
 #left-block {
     display: flex;
     justify-content: right;
-    width: 610px;
+    width: 510px;
     height: auto;
-    background-color: white;
 }
 
 #image-section {
@@ -31,23 +29,67 @@
 
 #center-block {
     display: flex;
+    justify-content: left;
+    flex-direction: column;
     width: 100%;
     height: auto;
     max-width: 680px;
+    margin-top: 25px;
     margin-right: 45px;
-    background-color: blue;
+}
+
+#name-section {
+    width: auto;
+    height: auto;
+    background-color: red;
+}
+
+#item-name-header {
+    font-size: 24px;
 }
 
 #description-section {
     margin-top: 25px;
 }
 
+#price-paragraph {
+    font-size: 28px;
+}
+
 #right-block {
+    display: flex;
+    justify-content: left;
+    width: auto;
+    height: 650px;
+}
+
+#checkout-section {
+    display: flex;
+    justify-content: left;
     width: 244px;
-    height: auto;
-    min-height: 178px;
-    margin-right: 80px;
-    background-color: greenyellow;
-    position: absolute;
+    height: 178px;
+    margin-right: 18px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D5D9D9;
     right: 0;
+}
+
+.division-between-sections {
+    width: auto;
+    height: 0px;
+    border-top-color: #BBBFBF;
+    border-top-style: solid;
+    border-width: 1px;
+    margin: 10px 0;
+}
+
+#shipping-paragraph {
+    font-size: 14px;
+}
+
+#free-shipping-bold-text {
+    font-size: 14px;
+    font-weight: 700;
 }

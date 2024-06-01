@@ -48,7 +48,7 @@ ApplicationRecord.transaction do
     })
 
     Product.create!({
-      name: 'Braun Electric Razor for Men',
+      name: 'DUCO Mens Sports Polarized Sunglasses UV Protection Sunglasses for Men 8177s',
       price: 179.99,
       description: "This is the description for product 3."
     })
