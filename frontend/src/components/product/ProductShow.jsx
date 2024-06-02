@@ -40,7 +40,13 @@ function ProductShow() {
                     <div className='division-between-sections'></div>
 
                     <div id='price-section'>
-                        <p id='price-paragraph'>{item.price}</p>
+
+                        <div id='price-block'>
+                            <span id='dollar-sign'>$</span>
+                            <p id='price-paragraph'>{item.price}</p>
+                            <p id='cents'>99</p>
+                        </div>
+
                         <p id='shipping-paragraph'>Get <span id='free-shipping-bold-text'>Fast, Free Shipping</span> with Amazonia Prime</p>
                         <p id='free-returns'>FREE returns</p>
                     </div>

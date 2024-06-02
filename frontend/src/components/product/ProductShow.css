@@ -93,3 +93,12 @@
     font-size: 14px;
     font-weight: 700;
 }
+
+#dollar-sign {
+    font-size: 13px;
+}
+
+#price-block {
+    display: flex;
+    justify-content: left;
+}
