@@ -7,6 +7,9 @@ import amazonLogo from '../../../../frontend/media/amazon-logo.png';
 import linkedinLogo from '../../../../frontend/media/linkedin-icon.png';
 import githubLogo from '../../../../frontend/media/github-icon.png';
 import cartIcon from '../../../../frontend/media/cart-icon.png';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 // import { useState } from 'react';
 
 function Navigation() {
@@ -23,6 +26,22 @@ function Navigation() {
     e.preventDefault();
     console.log('FORM IS WORKING, YOU DONT HAVE TO CLICK AGAIN')
   }
+
+  // const dropDown = sessionUser ? (
+  //   <div id='drop-down'>
+  //     <Link to >
+  //       <input id='drop-down-button' onClick={logout}>Log Out</input>
+  //     </Link>
+  //   </div>
+  // ) : (
+  //   <div id='drop-down'>
+  //     <Link to={'/login'}>
+  //       <button id='drop-down-button'>Sign In</button>
+  //     </Link>
+  //       <p id='new-costumer-paragraph'>New costumer? <Link to={'/signup'}>Start here.</Link></p>
+  //   </div>
+  // )
+
 
   const sessionLinks = sessionUser ? (
     <>
@@ -42,40 +61,52 @@ function Navigation() {
   );
 
   return (
-    <div className='nav-bar'>
-      <div className='nav-left'>
-        <img className='logo' src={amazonLogo} alt='Amazon Logo' />
-      </div>
+    <div id='nav-bar'>
+      <div id='navigation-section'>
 
-      <div id='nav-search-div'>
-        <form id='nav-bar-search-form' onSubmit={handleSubmit}>
-          <input type='text' id='search-area' placeholder="  Search Amazonia"></input>
-          <button type='submit' id='search-button'>
-            <RiSearchLine className='search-icon'/>
-          </button>
-        </form>
-      </div>
-
-      <div className='nav-links'>
-
-        <div id='profile-links'>
-        <a className='pf' href="https://github.com/Rafa-Camp04"><img className='logo-link' src={githubLogo} width="40" height="40" /></a>
-          <a className='pf' href="https://www.linkedin.com/in/rafael-campos-60471a2b2/"><img className='logo-link' src={linkedinLogo} width="40" height="40" /></a>
+        <div className='nav-left'>
+          <Link to={'/'}>
+            <div id='logo-div'>
+              <img id='logo' src={amazonLogo} alt='Amazon Logo' />
+            </div>
+          </Link>
         </div>
 
-        <div id='account'>
-          
-          <ul>
-            {sessionLinks}
-          </ul>
+
+        <div id='nav-search-div'>
+          <form id='nav-bar-search-form' onSubmit={handleSubmit}>
+            <input type='text' id='search-area' placeholder="  Search Amazonia"></input>
+            <button type='submit' id='search-button'>
+              <RiSearchLine className='search-icon'/>
+            </button>
+          </form>
         </div>
 
-        <div id='cart'>
-          <img id="cart-icon" src={cartIcon} alt="cartIcon" />
-          <p id='cart-text'>Cart</p>
-          <div id='cart-quantity'>0</div>
-        </div>
+        <div className='nav-links'>
 
+          <div id='profile-links'>
+          <a className='pf' href="https://github.com/Rafa-Camp04"><img className='logo-link' src={githubLogo} width="40" height="40" /></a>
+            <a className='pf' href="https://www.linkedin.com/in/rafael-campos-60471a2b2/"><img className='logo-link' src={linkedinLogo} width="40" height="40" /></a>
+          </div>
+
+          <div id='account'>
+            <p id='hello-paragraph'>Hello, sign in</p>
+            <p id='account-lists-text'>Account & Lists <FontAwesomeIcon icon={faCaretDown} className='drop-down-arrow-down' /></p>
+          </div>
+
+          <div id='cart'>
+            <img id="cart-icon" src={cartIcon} alt="cartIcon" />
+            <p id='cart-text'>Cart</p>
+            <div id='cart-quantity'>0</div>
+          </div>
+
+        </div>
+      </div>  
+
+      {/* {dropDown} */}
+
+      <div id='category-section'>
+          <ul>{sessionLinks}</ul>
       </div>
 
     </div>

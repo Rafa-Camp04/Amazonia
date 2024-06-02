@@ -22,6 +22,19 @@ function ProductShow() {
         return null
     }
 
+    const dollarOrCents = (dollarOrCents) => {
+        let num = item.price.toString()
+        const arr = num.split(".")
+
+        if (dollarOrCents === "dollar") {
+            return arr[0]
+        } else if (dollarOrCents === "cents") {
+            return arr[1]
+        } else {
+            return "please insert the string 'dollar' or 'cents'"
+        }
+    }
+
     return(
         <div id='product-show-page-body'>
             <Navigation />
@@ -34,7 +47,7 @@ function ProductShow() {
 
                 <div id='center-block'>
                     <div id='name-section'>
-                        <h3 id='item-name-header'>{item.name}</h3>
+                        <h3 id='item-name-h3'>{item.name}</h3>
                     </div>
 
                     <div className='division-between-sections'></div>
@@ -43,12 +56,12 @@ function ProductShow() {
 
                         <div id='price-block'>
                             <span id='dollar-sign'>$</span>
-                            <p id='price-paragraph'>{item.price}</p>
-                            <p id='cents'>99</p>
+                            <p id='price-paragraph'>{dollarOrCents('dollar')}</p>
+                            <p id='cents'>{dollarOrCents('cents')}</p>
                         </div>
 
-                        <p id='shipping-paragraph'>Get <span id='free-shipping-bold-text'>Fast, Free Shipping</span> with Amazonia Prime</p>
-                        <p id='free-returns'>FREE returns</p>
+                        <p id='shipping-paragraph'>Get <span className='a-text-bold'>Fast, Free Shipping</span> with <span className='fake-link-blue'>Amazonia Prime</span></p>
+                        <p id='free-returns' className='fake-link-blue'>FREE returns</p>
                     </div>
 
                     <div className='division-between-sections'></div>
@@ -61,6 +74,24 @@ function ProductShow() {
 
                 <div id='right-block'>
                     <div id='checkout-section'>
+
+                        <div id='top-checkout-div'>
+                            <span className='a-text-bold'>Buy New:</span>
+
+                            <div id='price-block'>
+                                <span id='dollar-sign'>$</span>
+                                <p id='price-paragraph'>{dollarOrCents('dollar')}</p>
+                                <p id='cents'>{dollarOrCents('cents')}</p>
+                            </div>
+                        </div>
+
+                        <p id='shipping-paragraph'>Get <span className='a-text-bold'>Fast, Free Shipping</span> with <span className='fake-link-blue'>Amazonia Prime</span></p>
+                        <p id='free-returns' className='fake-link-blue'>FREE returns</p>
+                        <span id='in-stock'>In Stock</span>
+
+                        <form>
+                            <input id='add-to-cart-button' type='submit' value={'Add to Cart'} />
+                        </form>
 
                     </div>
                 </div>
