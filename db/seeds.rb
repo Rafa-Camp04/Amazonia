@@ -48,7 +48,7 @@ ApplicationRecord.transaction do
     })
 
     Product.create!({
-      name: 'DUCO Mens Sports Polarized Sunglasses UV Protection Sunglasses for Men 8177s',
+      name: 'DUCO Mens Sports Polarized Sunglasses UV Protection',
       price: 179.99,
       description: "This is the description for product 3."
     })
@@ -81,6 +81,54 @@ ApplicationRecord.transaction do
       name: 'Energizer AA Batteries',
       price: 13.85,
       description: "This is the description for product 8."
+    })
+
+    Product.create!({
+      name: 'Mattel Games UNO Card Game',
+      price: 10.99,
+      description: "This is the description for product 9."
+    })
+
+    Product.create!({
+      name: 'Bicycle Rider Back Playing Cards',
+      price: 4.89,
+      description: "This is the description for product 10."
+    })
+
+    Product.create!({
+      name: 'Wooden Pizza Paddle Spatula',
+      price: 17.99,
+      description: "This is the description for product 11."
+    })
+
+    Product.create!({
+      name: 'Elegance Stainless Steel Rectangular Tray',
+      price: 73.02,
+      description: "This is the description for product 12."
+    })
+
+    Product.create!({
+      name: 'Basic Cotton Ribbed Fitted Tank Top',
+      price: 19.99,
+      description: "This is the description for product 13."
+    })
+
+    Product.create!({
+      name: 'Leather Tennis Shoes Low Top lace',
+      price: 24.99,
+      description: "This is the description for product 14."
+    })
+
+    Product.create!({
+      name: 'Luxury 3 Seater Boucle Upholstered Cloud Couch',
+      price: 999.99,
+      description: "This is the description for product 15."
+    })
+
+    Product.create!({
+      name: 'HP DeskJet 2855e Wireless All-in-One Color Inkjet Printer',
+      price: 54.85,
+      description: "This is the description for product 16."
     })
   
     puts "Done!"

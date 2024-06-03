@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import {RiSearchLine} from 'react-icons/ri';
@@ -10,11 +9,11 @@ import cartIcon from '../../../../frontend/media/cart-icon.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-// import { useState } from 'react';
+import { useState } from 'react';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isDropDownOpen, setDropDownOpen] = useState(false);
   const dispatch = useDispatch();
 
   const logout = (e) => {
@@ -27,38 +26,26 @@ function Navigation() {
     console.log('FORM IS WORKING, YOU DONT HAVE TO CLICK AGAIN')
   }
 
-  // const dropDown = sessionUser ? (
-  //   <div id='drop-down'>
-  //     <Link to >
-  //       <input id='drop-down-button' onClick={logout}>Log Out</input>
-  //     </Link>
-  //   </div>
-  // ) : (
-  //   <div id='drop-down'>
-  //     <Link to={'/login'}>
-  //       <button id='drop-down-button'>Sign In</button>
-  //     </Link>
-  //       <p id='new-costumer-paragraph'>New costumer? <Link to={'/signup'}>Start here.</Link></p>
-  //   </div>
-  // )
-
-
-  const sessionLinks = sessionUser ? (
-    <>
-      <li>
-        <button onClick={logout}>Log Out</button>
-      </li>
-    </>
+  const dropDown = sessionUser ? (
+    <div id='drop-down'>
+      <Link to >
+        <button id='drop-down-button' onClick={logout}>Log Out</button>
+      </Link>
+    </div>
   ) : (
-    <>
-      <li>
-        <NavLink to="/login">Sign in</NavLink>
-      </li>
-      <li>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </li>
-    </>
-  );
+    <div id='drop-down'>
+      <Link to={'/login'}>
+        <button id='drop-down-button'>Sign In</button>
+      </Link>
+        <p id='new-costumer-paragraph'>New costumer? <Link to={'/signup'}>Start here.</Link></p>
+    </div>
+  )
+
+  const signedIn = sessionUser ? (
+    <p id='hello-paragraph'>Hello, User</p>
+  ) : (
+    <p id='hello-paragraph'>Hello, sign in</p>
+  )
 
   return (
     <div id='nav-bar'>
@@ -75,7 +62,7 @@ function Navigation() {
 
         <div id='nav-search-div'>
           <form id='nav-bar-search-form' onSubmit={handleSubmit}>
-            <input type='text' id='search-area' placeholder="  Search Amazonia"></input>
+            <input type='text' id='search-area' placeholder="Search Amazonia"></input>
             <button type='submit' id='search-button'>
               <RiSearchLine className='search-icon'/>
             </button>
@@ -89,8 +76,8 @@ function Navigation() {
             <a className='pf' href="https://www.linkedin.com/in/rafael-campos-60471a2b2/"><img className='logo-link' src={linkedinLogo} width="40" height="40" /></a>
           </div>
 
-          <div id='account'>
-            <p id='hello-paragraph'>Hello, sign in</p>
+          <div id='account' onMouseEnter={() => setDropDownOpen((dropDown) => !dropDown)}>
+            {signedIn}
             <p id='account-lists-text'>Account & Lists <FontAwesomeIcon icon={faCaretDown} className='drop-down-arrow-down' /></p>
           </div>
 
@@ -103,10 +90,9 @@ function Navigation() {
         </div>
       </div>  
 
-      {/* {dropDown} */}
+      { isDropDownOpen && dropDown }
 
       <div id='category-section'>
-          <ul>{sessionLinks}</ul>
       </div>
 
     </div>

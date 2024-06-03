@@ -13,6 +13,20 @@ function ProductsIndex() {
 
     const productsAll = useSelector(state => state.products);
 
+    const dollarOrCents = (dollarOrCents, item) => {
+        console.log(item)
+        let num = item.price.toString()
+        const arr = num.split(".")
+
+        if (dollarOrCents === "dollar") {
+            return arr[0]
+        } else if (dollarOrCents === "cents") {
+            return arr[1]
+        } else {
+            return "please insert the string 'dollar' or 'cents'"
+        }
+    }
+
     const productIndexItem = () => {
         return Object.values(productsAll).map(product => (
             <Link key={product.id} className='product-item-link' to={`/products/${product.id}`}>
@@ -21,8 +35,16 @@ function ProductsIndex() {
 
                     </div>
 
-                    <h2>{product.name}</h2>
-                    <p>${product.price}</p>
+                    <div className='bottom-index-item-section'>
+                        <h2 className='product-name-header-index'>{product.name}</h2>
+
+                        <div className='price-block-index-page'>
+                            <span id='dollar-sign'>$</span>
+                            <p id='price-paragraph'>{dollarOrCents('dollar', product)}</p>
+                            <p id='cents'>{dollarOrCents('cents', product)}</p>
+                        </div>
+
+                    </div>
                 </div>
             </Link>    
         ));
