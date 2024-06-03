@@ -11,6 +11,11 @@
 #
 class User < ApplicationRecord
 
+    has_many :cart_items,
+    primary_key: :id,
+    foreign_key: :customer_id,
+    class_name: :CartItem
+
     has_secure_password
 
     before_validation :ensure_session_token
