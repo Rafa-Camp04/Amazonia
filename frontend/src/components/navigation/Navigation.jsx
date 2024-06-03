@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import {RiSearchLine} from 'react-icons/ri';
 import './Navigation.css'
-import amazonLogo from '../../../../frontend/media/amazon-logo.png';
+import amazoniaLogo from '../../../../frontend/media/amazonia-logo-white.png';
 import linkedinLogo from '../../../../frontend/media/linkedin-icon.png';
 import githubLogo from '../../../../frontend/media/github-icon.png';
 import cartIcon from '../../../../frontend/media/cart-icon.png';
@@ -54,7 +54,7 @@ function Navigation() {
         <div className='nav-left'>
           <Link to={'/'}>
             <div id='logo-div'>
-              <img id='logo' src={amazonLogo} alt='Amazon Logo' />
+              <img id='logo' src={amazoniaLogo} alt='Amazonia Logo' />
             </div>
           </Link>
         </div>

@@ -13,22 +13,21 @@
 }
 
 #logo {
-    width: 100px;
+    width: 120px;
     height: auto;
-    margin-top: 10px;
 }
 
 #logo-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 113px;
+    width: 138px;
     height: 50px;
-    margin-left: 15px;
+    margin-left: 12px;
 }
 
 #logo-div:hover {
-    width: 111px;
+    width: 136px;
     border-style: solid;
     border-color: white;
     border-width: 1px;
