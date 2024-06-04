@@ -1,7 +1,15 @@
 import './Cart.css'
 import Navigation from '../navigation/Navigation';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import * as cartItemsActions from '../../store/cart';
 
 function Cart() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(cartItemsActions.indexCartItems());
+    }, [dispatch])
 
     return (
         <>

@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import * as productActions from '../../store/product';
 import Navigation from '../navigation/Navigation';
 import { useParams } from 'react-router-dom';
-import { addToCart } from '../../store/cart';
+import * as cartItemsActions from '../../store/cart';
 
 function ProductShow() {
     const dispatch = useDispatch();
@@ -24,8 +24,7 @@ function ProductShow() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        dispatch(addToCart(product));
+        dispatch(cartItemsActions.createCartItem(product));
     }
 
     const dollarOrCents = (dollarOrCents) => {

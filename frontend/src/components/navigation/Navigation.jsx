@@ -80,7 +80,7 @@ function Navigation() {
             <p id='account-lists-text'>Account & Lists <FontAwesomeIcon icon={faCaretDown} className='drop-down-arrow-down' /></p>
           </div>
 
-          <Link to={'cart'}>
+          <Link to={'/cart'}>
             <div id='cart'>
               <img id="cart-icon" src={cartIcon} alt="cartIcon" />
               <p id='cart-text'>Cart</p>

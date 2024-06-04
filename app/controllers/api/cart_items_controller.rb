@@ -7,6 +7,9 @@ class Api::CartItemsController < ApplicationController
 
     def create 
         cart_item = CartItem.new(cart_items_params)
+        cart_item.customer_id = current_user.id
+
+        # debugger
 
         if cart_item.save
             render json: cart_item
@@ -21,7 +24,7 @@ class Api::CartItemsController < ApplicationController
     end
 
     def cart_items_params
-        params.require(:cart_item).permit(:product_id, :quantity, :custumer_id)
+        params.require(:cart_item).permit(:product_id, :quantity, :customer_id)
     end
 
 end
