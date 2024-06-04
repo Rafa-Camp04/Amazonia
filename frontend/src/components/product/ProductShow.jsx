@@ -73,9 +73,9 @@ function ProductShow() {
                 </div>
 
                 <div id='right-block'>
-                    <div id='checkout-section'>
+                    <div id='add-to-cart-section'>
 
-                        <div id='top-checkout-div'>
+                        <div id='top-add-to-cart-div'>
                             <span className='a-text-bold'>Buy New:</span>
 
                             <div id='price-block'>

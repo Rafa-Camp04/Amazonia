@@ -59,7 +59,6 @@ function Navigation() {
           </Link>
         </div>
 
-
         <div id='nav-search-div'>
           <form id='nav-bar-search-form' onSubmit={handleSubmit}>
             <input type='text' id='search-area' placeholder="Search Amazonia"></input>
@@ -81,11 +80,13 @@ function Navigation() {
             <p id='account-lists-text'>Account & Lists <FontAwesomeIcon icon={faCaretDown} className='drop-down-arrow-down' /></p>
           </div>
 
-          <div id='cart'>
-            <img id="cart-icon" src={cartIcon} alt="cartIcon" />
-            <p id='cart-text'>Cart</p>
-            <div id='cart-quantity'>0</div>
-          </div>
+          <Link to={'cart'}>
+            <div id='cart'>
+              <img id="cart-icon" src={cartIcon} alt="cartIcon" />
+              <p id='cart-text'>Cart</p>
+              <div id='cart-quantity'>0</div>
+            </div>
+          </Link>
 
         </div>
       </div>  
