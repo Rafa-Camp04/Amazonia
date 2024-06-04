@@ -14,7 +14,6 @@ function ProductsIndex() {
     const productsAll = useSelector(state => state.products);
 
     const dollarOrCents = (dollarOrCents, item) => {
-        console.log(item)
         let num = item.price.toString()
         const arr = num.split(".")
 
@@ -32,7 +31,9 @@ function ProductsIndex() {
             <Link key={product.id} className='product-item-link' to={`/products/${product.id}`}>
                 <div className="product-item-div">
                     <div id='item-image-section'>
-
+                        <div className='out-image'>
+                            <img className='product-image-show-page' src={`${product?.photoUrl}`} />
+                        </div>
                     </div>
 
                     <div className='bottom-index-item-section'>

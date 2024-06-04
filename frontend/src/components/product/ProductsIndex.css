@@ -46,9 +46,12 @@
 }
 
 #item-image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 300px;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
 }
 
 .product-name-header-index {
@@ -72,4 +75,12 @@
     justify-content: left;
     align-items: center;
     padding-top: 4px;
+}
+
+.out-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 260px;
 }

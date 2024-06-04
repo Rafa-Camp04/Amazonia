@@ -12,7 +12,6 @@
     justify-content: center;
     width: 100%;
     max-width: 1500px;
-    height: 100%;
     margin-top: 60px;
 }
 
@@ -53,6 +52,11 @@
     border-radius: 25px;
     background-color: #FCD200;
     box-shadow: 0 2px 5px 0 hsla(180, 5%, 84%, .5);
+}
+
+#proceed-to-checkout-button:hover {
+    background-color: #e6bf00;
+    cursor: pointer;
 }
 
 #shopping-header {

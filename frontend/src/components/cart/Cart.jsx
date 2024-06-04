@@ -17,6 +17,7 @@ function Cart() {
 
                         <div className='cart-item-div'>
                         </div>
+                        
 
                     </div>
 

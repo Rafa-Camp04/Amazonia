@@ -1,3 +1,5 @@
+require "open-uri"
+
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -7,7 +9,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-ApplicationRecord.transaction do 
+# ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
@@ -35,101 +37,120 @@ ApplicationRecord.transaction do
 
     puts "Creating products..."
 
-    Product.create!({
+    product1 = Product.create!({
       name: 'Apple iPad Air (5th Generation)',
       price: 549.99,
       description: "This is the description for product 1."
     })
+    
+    # product1.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-1.jpg"), filename: 'product-1.jpg')
 
-    Product.create!({
+    product2 = Product.create!({
       name: 'Sunglasses Men Polarized',
       price: 89.99,
       description: "This is the description for product 2."
     })
 
-    Product.create!({
+    product3 = Product.create!({
       name: 'DUCO Mens Sports Polarized Sunglasses UV Protection',
       price: 179.99,
       description: "This is the description for product 3."
     })
 
-    Product.create!({
+    product4 = Product.create!({
       name: 'Technics Wireless Noise Cancelling Headphones',
       price: 119.99,
       description: "This is the description for product 4."
     })
 
-    Product.create!({
+    product5 = Product.create!({
       name: 'Sloosh Bubble Lawn Mower Toddler Toys',
       price: 29.99,
       description: "This is the description for product 5."
     })
 
-    Product.create!({
+    product6 = Product.create!({
       name: 'Hexagon Workout Dumbbell Hand Weight',
       price: 21.99,
       description: "This is the description for product 6."
     })
 
-    Product.create!({
+    product7 = Product.create!({
       name: 'Sony OLED 65 inch BRAVIA XR A80L Series 4K Ultra HD TV',
       price: 1698.05,
       description: "This is the description for product 7."
     })
 
-    Product.create!({
+    product8 = Product.create!({
       name: 'Energizer AA Batteries',
       price: 13.85,
       description: "This is the description for product 8."
     })
 
-    Product.create!({
+    product9 = Product.create!({
       name: 'Mattel Games UNO Card Game',
       price: 10.99,
       description: "This is the description for product 9."
     })
 
-    Product.create!({
+    product10 = Product.create!({
       name: 'Bicycle Rider Back Playing Cards',
       price: 4.89,
       description: "This is the description for product 10."
     })
 
-    Product.create!({
+    product11 = Product.create!({
       name: 'Wooden Pizza Paddle Spatula',
       price: 17.99,
       description: "This is the description for product 11."
     })
 
-    Product.create!({
+    product12 = Product.create!({
       name: 'Elegance Stainless Steel Rectangular Tray',
       price: 73.02,
       description: "This is the description for product 12."
     })
 
-    Product.create!({
+    product13 = Product.create!({
       name: 'Basic Cotton Ribbed Fitted Tank Top',
       price: 19.99,
       description: "This is the description for product 13."
     })
 
-    Product.create!({
+    product14 = Product.create!({
       name: 'Leather Tennis Shoes Low Top lace',
       price: 24.99,
       description: "This is the description for product 14."
     })
 
-    Product.create!({
+    product15 = Product.create!({
       name: 'Luxury 3 Seater Boucle Upholstered Cloud Couch',
       price: 999.99,
       description: "This is the description for product 15."
     })
 
-    Product.create!({
+    product16 = Product.create!({
       name: 'HP DeskJet 2855e Wireless All-in-One Color Inkjet Printer',
       price: 54.85,
       description: "This is the description for product 16."
     })
+
+    product1.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-1.jpg"), filename: 'product-1.jpg')
+    product2.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-2.jpg"), filename: 'product-2.jpg')
+    product3.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-3.jpg"), filename: 'product-3.jpg')
+    product4.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-4.jpg"), filename: 'product-4.jpg')
+    product5.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-5.jpg"), filename: 'product-5.jpg')
+    product6.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-6.jpg"), filename: 'product-6.jpg')
+    product7.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-7.jpg"), filename: 'product-7.jpg')
+    product8.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-8.jpg"), filename: 'product-8.jpg')
+    product9.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-9.jpg"), filename: 'product-9.jpg')
+    product10.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-10.jpg"), filename: 'product-10.jpg')
+    product11.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-11.jpg"), filename: 'product-11.jpg')
+    product12.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-12.jpg"), filename: 'product-12.jpg')
+    product13.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-13.jpg"), filename: 'product-13.jpg')
+    product14.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-14.jpg"), filename: 'product-14.jpg')
+    product15.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-15.jpg"), filename: 'product-15.jpg')
+    product16.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-16.jpg"), filename: 'product-16.jpg')
   
     puts "Done!"
-  end
+  # end

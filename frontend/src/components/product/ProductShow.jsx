@@ -1,29 +1,35 @@
 import './ProductShow.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import * as productActions from '../../store/product';
 import Navigation from '../navigation/Navigation';
 import { useParams } from 'react-router-dom';
+import { addToCart } from '../../store/cart';
 
 function ProductShow() {
     const dispatch = useDispatch();
     const {id} = useParams()
-    const itemId = parseInt(id, 10)
+    const productId = parseInt(id, 10)
 
     useEffect(() => {
-        dispatch(productActions.showItem(itemId));
-    }, [dispatch, itemId]);
+        dispatch(productActions.showItem(productId));
+    }, [dispatch, productId]);
 
-    const items = useSelector(state => state.products);
-    const item = items[itemId]
+    const products = useSelector(state => state.products);
+    const product = products[productId]
 
-    if (!item) {
+    if (!product) {
         return null
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        dispatch(addToCart(product));
+    }
+
     const dollarOrCents = (dollarOrCents) => {
-        let num = item.price.toString()
+        let num = product.price.toString()
         const arr = num.split(".")
 
         if (dollarOrCents === "dollar") {
@@ -41,13 +47,13 @@ function ProductShow() {
             <div id='main-block'>
                 <div id='left-block'>
                     <div id='image-section'>
-
+                        <img className='product-image-show-page' src={`${product?.photoUrl}`} />
                     </div>
                 </div>
 
                 <div id='center-block'>
                     <div id='name-section'>
-                        <h3 id='item-name-h3'>{item.name}</h3>
+                        <h3 id='item-name-h3'>{product.name}</h3>
                     </div>
 
                     <div className='division-between-sections'></div>
@@ -67,7 +73,7 @@ function ProductShow() {
                     <div className='division-between-sections'></div>
 
                     <div id='description-section'>
-                        <p>{item.description}</p>
+                        <p>{product.description}</p>
                     </div>
 
                 </div>
@@ -90,7 +96,7 @@ function ProductShow() {
                         <span id='in-stock'>In Stock</span>
 
                         <form>
-                            <input id='add-to-cart-button' type='submit' value={'Add to Cart'} />
+                            <input id='add-to-cart-button' type='submit' value={'Add to Cart'} onClick={handleSubmit} />
                         </form>
 
                     </div>

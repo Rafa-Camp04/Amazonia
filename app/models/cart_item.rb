@@ -11,6 +11,8 @@
 #
 class CartItem < ApplicationRecord
 
+    validates :customer_id, :product_id, :quantity, presence: true
+
     belongs_to :customer,
     primary_key: :id,
     foreign_key: :customer_id,
