@@ -21,7 +21,8 @@ function Cart() {
                     </div>
 
                     <div id='checkout-section'>
-
+                        <h2 id='checkout-text-header'>Subtotal (2 items):</h2>
+                        <input id='proceed-to-checkout-button' type='submit' value={'Proceed to checkout'} />
                     </div>
 
                 </div>
