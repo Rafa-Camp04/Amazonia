@@ -11,8 +11,6 @@ function ProductsIndex() {
         dispatch(productActions.indexProducts());
     }, [dispatch]);
 
-    const productsAll = useSelector(state => state.products);
-
     const dollarOrCents = (dollarOrCents, item) => {
         let num = item.price.toString()
         const arr = num.split(".")
@@ -25,6 +23,8 @@ function ProductsIndex() {
             return "please insert the string 'dollar' or 'cents'"
         }
     }
+
+    const productsAll = useSelector(state => state.products);
 
     const productIndexItem = () => {
         return Object.values(productsAll).map(product => (

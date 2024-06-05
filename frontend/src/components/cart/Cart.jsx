@@ -3,6 +3,7 @@ import Navigation from '../navigation/Navigation';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as cartItemsActions from '../../store/cart';
+import { useSelector } from 'react-redux';
 
 function Cart() {
     const dispatch = useDispatch();
@@ -10,6 +11,22 @@ function Cart() {
     useEffect(() => {
         dispatch(cartItemsActions.indexCartItems());
     }, [dispatch])
+
+    const allCartItems = useSelector(state => state.cartItems)
+
+    const cartItemDiv = () => {
+        return Object.values(allCartItems).map(item => (
+            <div className='cart-item-div'>
+
+                <div className='cart-item-image-section'>
+                    <img className='cart-item-image' src={`${item?.photoUrl}`} alt={item?.name || 'Cart item'} />
+                </div>
+
+                <div className='division-between-sections'></div>
+
+            </div>
+        ));
+    };
 
     return (
         <>
@@ -23,8 +40,7 @@ function Cart() {
                         <p id='price-paragraph-in-shopping-cart-div'>Price</p>
                         <div className='division-between-sections'></div>
 
-                        <div className='cart-item-div'>
-                        </div>
+                        {cartItemDiv()}
                         
 
                     </div>
