@@ -8,6 +8,8 @@ import * as sessionActions from './store/session';
 import ProductsIndex from './components/product/ProductsIndex'
 import ProductShow from './components/product/ProductShow';
 import Cart from './components/cart/Cart';
+import Delivery from './components/cart/Delivery';
+import OrderPlaced from './components/product/OrderPlaced';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />
+      },
+      {
+        path: "delivery",
+        element: <Delivery />
+      },
+      {
+        path: "order-placed",
+        element: <OrderPlaced />
       }
     ]
   }

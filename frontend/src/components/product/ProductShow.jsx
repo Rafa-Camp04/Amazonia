@@ -3,17 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import * as productActions from '../../store/product';
 import Navigation from '../navigation/Navigation';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import * as cartItemsActions from '../../store/cart';
 
 function ProductShow() {
     const dispatch = useDispatch();
     const {id} = useParams()
     const productId = parseInt(id, 10)
+    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(productActions.showItem(productId));
-        dispatch(cartItemsActions.indexCartItems())
     }, [dispatch, productId]);
 
     const products = useSelector(state => state.products);
@@ -26,6 +26,7 @@ function ProductShow() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(cartItemsActions.createCartItem(product));
+        navigate('/order-placed')
     }
 
     const dollarOrCents = (dollarOrCents) => {
@@ -93,11 +94,9 @@ function ProductShow() {
 
                         <p id='shipping-paragraph'>Get <span className='a-text-bold'>Fast, Free Shipping</span> with <span className='fake-link-blue'>Amazonia Prime</span></p>
                         <p id='free-returns' className='fake-link-blue'>FREE returns</p>
-                        <span id='in-stock'>In Stock</span>
+                        <span className='in-stock'>In Stock</span>
 
-                        <form>
-                            <input id='add-to-cart-button' type='submit' value={'Add to Cart'} onClick={handleSubmit} />
-                        </form>
+                        <input id='add-to-cart-button' type='submit' value={'Add to Cart'} onClick={handleSubmit} />
 
                     </div>
                 </div>

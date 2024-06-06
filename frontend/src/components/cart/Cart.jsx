@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import * as cartItemsActions from '../../store/cart';
 import * as productActions from '../../store/product';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Cart() {
     const dispatch = useDispatch();
@@ -81,12 +82,22 @@ function Cart() {
                     <div className='cart-item-div'>
 
                         <div className='cart-item-image-section'>
-                            <img className='cart-item-image' src={`${product?.photoUrl}`} alt={product?.name || 'Cart item'} />
+                            <Link className='cart-item-header-link' to={`/products/${product.id}`}>
+                                <img className='cart-item-image' src={`${product?.photoUrl}`} alt={product?.name || 'Cart item'} />
+                            </Link>
                         </div>
 
                         <div className='cart-item-information'>
                             <div>
-                                <h2 className='cart-item-header'>{product.name}</h2>
+                                <Link className='cart-item-header-link' to={`/products/${product.id}`}>
+                                    <h2 className='cart-item-header'>{product.name}</h2>
+                                </Link>
+                            </div>
+
+                            <div className='cart-item-delivery-information'>
+                                <span className='in-stock'>In Stock</span>
+                                <p className='cart-item-delivery-information-paragraph'>Same-Day</p>
+                                <p className='cart-item-delivery-information-paragraph'>FREE delivery <span className='cart-item-delivery-information-bold-text'>Tomorrow 2 PM - 6 PM</span></p>
                             </div>
 
                             <div className='cart-item-buttons-div'>
@@ -132,22 +143,32 @@ function Cart() {
             <Navigation />
             <div id='cart-body'>
                 <div id='main-cart-block'>
+                    {cartQuantity() === 0 ? (
+                        
+                        <div id='empty-cart-div'>
 
-                    <div id='shopping-cart-div'>
+                            <h2 id='shopping-header'>Your Amazon Cart is empty.</h2>
 
-                        <h2 id='shopping-header'>Shopping Cart</h2>
-                        <p id='price-paragraph-in-shopping-cart-div'>Price</p>
-                        <div className='division-between-sections'></div>
+                        </div>
 
-                        {cartItemDiv()}
+                     ) : (
+                        <>
+                            <div id='shopping-cart-div'>
 
-                    </div>
+                                <h2 id='shopping-header'>Shopping Cart</h2>
+                                <p id='price-paragraph-in-shopping-cart-div'>Price</p>
+                                <div className='division-between-sections'></div>
 
-                    <div id='checkout-section'>
-                        <h2 id='checkout-text-header'>Subtotal ({cartQuantity()} items):<span id='cart-item-price-sum'> ${priceSum()}</span></h2>
-                        <input id='proceed-to-checkout-button' type='submit' value={'Proceed to checkout'} />
-                    </div>
+                                {cartItemDiv()}
 
+                            </div>
+
+                            <div id='checkout-section'>
+                                <h2 id='checkout-text-header'>Subtotal ({cartQuantity()} items):<span id='cart-item-price-sum'> ${priceSum()}</span></h2>
+                                <Link to={'/delivery'}><input id='proceed-to-checkout-button' type='submit' value={'Place your Order'} /></Link>
+                            </div>
+                        </>
+                     )}
                 </div>
             </div>
         </>
