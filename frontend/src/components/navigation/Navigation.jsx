@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import * as cartItemsActions from '../../store/cart';
+import * as reviewsActions from '../../store/review';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -21,6 +22,9 @@ function Navigation() {
     if (sessionUser) {
       dispatch(cartItemsActions.indexCartItems())
     }
+
+    dispatch(reviewsActions.indexReviews())
+
   }, [dispatch, sessionUser])
 
   const logout = (e) => {

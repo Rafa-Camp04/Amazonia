@@ -12,6 +12,8 @@ require "open-uri"
 # ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Review.destroy_all
+    CartItem.destroy_all
     User.destroy_all
     Product.destroy_all
   
@@ -151,6 +153,16 @@ require "open-uri"
     product14.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-14.jpg"), filename: 'product-14.jpg')
     product15.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-15.jpg"), filename: 'product-15.jpg')
     product16.photo.attach(io: URI.open("https://amazonia-seeds.s3.us-east-2.amazonaws.com/product-16.jpg"), filename: 'product-16.jpg')
+
+    puts "Creating reviews..."
+
+    Review.create!({
+      title: 'Review for item 2',
+      body: 'I recommend this product!',
+      rating: 5,
+      user_id: 1,
+      product_id: 1
+    })
   
     puts "Done!"
   # end
