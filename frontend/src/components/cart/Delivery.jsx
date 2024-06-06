@@ -9,11 +9,8 @@ import { Link } from 'react-router-dom';
 function Delivery() {
     const dispatch = useDispatch();
     const allCartItems = useSelector(state => state.cartItems)
-    const [initialCartItems, setInitialCartItems] = useState({});
 
     useEffect(() => {
-
-        setInitialCartItems(allCartItems);
 
         Object.values(allCartItems).forEach(item => {
             dispatch(cartItemsActions.deleteCartItem(item));
@@ -22,7 +19,7 @@ function Delivery() {
 
     const itemsQuantity = () => {
         let cartQuantity = 0;
-
+        debugger
         Object.values(initialCartItems).map(item => {
             cartQuantity += item.quantity
         })
@@ -40,7 +37,7 @@ function Delivery() {
                     <div id='order-delivery-message-block'>
                         <h2 id='order-delivery-message-header'>Order placed, thanks!</h2>
                         <p id='order-delivery-confirmation-paragraph'>Confirmation will be sent to your email.</p>
-                        <p id='order-quantity-paragraph'>{itemsQuantity()} items will be shipped to you by Amazonia.com.</p>
+                        <p id='order-quantity-paragraph'>Your items will be shipped to you by Amazonia.com.</p>
 
                         <div className='division-between-sections'></div>
                         
@@ -58,9 +55,9 @@ function Delivery() {
 
                 </div>
 
-                <div id='order-delivery-links-block'>
+                {/* <div id='order-delivery-links-block'>
 
-                </div>
+                </div> */}
 
             </div>
         </>
