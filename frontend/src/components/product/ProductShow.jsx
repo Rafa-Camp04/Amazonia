@@ -13,6 +13,7 @@ function ProductShow() {
 
     useEffect(() => {
         dispatch(productActions.showItem(productId));
+        dispatch(cartItemsActions.indexCartItems())
     }, [dispatch, productId]);
 
     const products = useSelector(state => state.products);

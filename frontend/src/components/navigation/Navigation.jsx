@@ -9,17 +9,36 @@ import cartIcon from '../../../../frontend/media/cart-icon.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import * as cartItemsActions from '../../store/cart';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
   const [isDropDownOpen, setDropDownOpen] = useState(false);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (sessionUser) {
+      dispatch(cartItemsActions.indexCartItems())
+    }
+  }, [dispatch, sessionUser])
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+
+  const allCartItems = useSelector(state => state.cartItems);
+  
+  const cartQuantity = () => {
+    let cartQuantity = 0;
+
+    Object.values(allCartItems).map(item => {
+        cartQuantity += item.quantity
+    })
+
+    return cartQuantity
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,7 +103,7 @@ function Navigation() {
             <div id='cart'>
               <img id="cart-icon" src={cartIcon} alt="cartIcon" />
               <p id='cart-text'>Cart</p>
-              <div id='cart-quantity'>0</div>
+              <div id='cart-quantity'>{cartQuantity()}</div>
             </div>
           </Link>
 

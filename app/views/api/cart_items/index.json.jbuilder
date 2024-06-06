@@ -1,9 +1,8 @@
-@cart_items.each do |product|
-    json.set! product.id do 
-        json.id product.id
-        json.name product.name
-        json.price product.price
-        json.description product.description
-        json.photoUrl product.photo.attached? ? product.photo.url : nil
+@cart_items.each do |cart_item|
+    json.set! cart_item.id do 
+        json.id cart_item.id
+        json.customer_id cart_item.customer_id
+        json.product_id cart_item.product_id
+        json.quantity cart_item.quantity
     end
 end
