@@ -7,3 +7,77 @@
     min-height: 100vh;
     background-color: #EAEDED;
 }
+
+#main-delivery-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 540px;
+    height: 146px;
+    margin-top: 60px;
+    border-radius: 8px;
+    padding: 20px 20px 0;
+    background-color: white;
+}
+
+#order-delivery-message-block {
+    width: 100%;
+    height: 100%;
+}
+
+#order-delivery-message-header {
+    font-size: 18px;
+    color: #007600;
+    margin-left: 8px;
+    font-weight: bolder;
+}
+
+#order-delivery-confirmation-paragraph {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+#order-quantity-paragraph {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#order-delivery-bold-paragraph-1 {
+    height: 14px;
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+#order-delivery-bold-paragraph-2 {
+    height: 14px;
+    font-size: 14px;
+    color: black;
+    font-weight: bolder;
+}
+
+#delivery-date {
+    color: #067d62;
+}
+
+#order-delivery-links-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 580px;
+    height: 500px;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+#bottom-message-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#order-delivery-home-button {
+    margin-top: 13px;
+}
