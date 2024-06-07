@@ -6,11 +6,11 @@ Amazonia
 [Amazonia](https://amazonia-bddg.onrender.com/) is a full-stack clone of the Amazon website, which includes functionalities such as creating and logging into a new account, and adding, editing, and removing products from the cart.
 
 ### Technologies implemented:
-* Languages: Javascript, Ruby, HTML, and CSS
-* Frontend: React-Redux
-* Database: PostgreSQL
-* Hosting: Heroku
-* Asset Storage: AWS Simple Cloud Storage (S3)
+* **Languages**: Javascript, Ruby, HTML, and CSS
+* **Frontend**: React-Redux
+* **Database**: PostgreSQL
+* **Hosting**: Heroku
+* **Asset Storage**: AWS Simple Cloud Storage (S3)
 
 Features
 =========
@@ -20,61 +20,70 @@ Features
 Amazonia enables users to create new accounts that are securely stored and managed in the database.
 
 ![1](https://github.com/Rafa-Camp04/Amazonia/assets/161013936/341a9ef5-003f-41e8-9a71-4378d1277d9d)
+
+```
+<div className='sign-up-block'>
+  <form onSubmit={handleSubmit}>
+
+    <h1>Create account</h1>
+    <label className='sign-in-form-label'>Email</label> <br/>
+    <input
+      className='sign-up-form-input'
+      type="text"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+    /> <br/><br/>
+    <label className='sign-in-form-label'>Password</label> <br/>
+    <input
+      className='sign-up-form-input'
+      type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      required
+    /> <br/><br/>
+    <label className='sign-in-form-label'>Re-enter password</label> <br/>
+    <input
+      className='sign-up-form-input'
+      type="password"
+      value={confirmPassword}
+      onChange={(e) => setConfirmPassword(e.target.value)}
+      required
+    /> <br/><br/>
+    <button className='sign-up-form-button' type="submit">Sign Up</button> <br/><br/><br/>
+    <div id='text-under-form'><p>By continuing, you agree to Amazonia&apos;s Conditions of Use and Privacy Notice.</p></div> <br/><br/><br/>
+    <div id='text-with-link'>
+      <p>Already have an account? <Link to='/login'>Sign In</Link></p>
+    </div>
+
+  </form>
+</div>
+```
+
+Handling errors with an alert message.
+
 ![2](https://github.com/Rafa-Camp04/Amazonia/assets/161013936/dfd767c2-f28f-452a-8f44-6ff00bb29f07)
 
 ```
 {errors.length > 0 && (
   <div className='error-div'>
     <div id='inner-error-div'>
-      <h4 id='alert-header'>There was a problem</h4>
+      <h4 id='alert-heading'>There was a problem</h4>
       <ul className='error-text'>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
     </div>
   </div>
 )}
-<div className='sign-in-block'>
-  <form onSubmit={handleSubmit}>
-    <h1>Sign in</h1>
-    <label className='sign-in-form-label'>Email</label><br/>
-    <input
-      className='sign-in-form-input'
-      type="text"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      required
-    /><br/><br/>
-    <label className='sign-in-form-label'>Password</label><br/>
-    <input
-      className='sign-in-form-input'
-      type="password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      required
-    /><br/><br/>
-    <button 
-      className='sign-in-form-button' 
-      type="submit">
-      Sign In
-    </button><br/><br/>
-    <button 
-      type='button' 
-      className='sign-in-form-button' 
-      onClick={handleDemoUserLogin}>
-      Demo User
-    </button><br/><br/>
-    <div id='text-under-form'>
-      <p>By continuing, you agree to Amazonia&apos;s Conditions of Use and Privacy Notice.</p>
-    </div>
-  </form>
-</div>
 ```
 
-## Cart
+## Product Selection and Cart Addition
 
-Once logged in, the user can select a product and add it to the cart.
+Upon logging in, users have the ability to browse and select their desired product from the available options.
 
 ![5](https://github.com/Rafa-Camp04/Amazonia/assets/161013936/6d0a9d88-431f-4ac7-9a50-d272c2c89074)
+
+Once they've found the item they wish to purchase, they can add it to their cart with a simple click.
 
 ![4](https://github.com/Rafa-Camp04/Amazonia/assets/161013936/19ff989c-9176-45dc-af8a-c30b4004d64e)
 ```
@@ -102,7 +111,7 @@ Once logged in, the user can select a product and add it to the cart.
 ```
 
 
-An Amazonia user can also update the quantity of products and remove them from the cart.
+An Amazonia user can also update the quantity of products and remove them from the cart:
 
 ![6](https://github.com/Rafa-Camp04/Amazonia/assets/161013936/bccec336-4131-410a-b521-75555d8f8e85)
 
