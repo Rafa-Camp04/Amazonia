@@ -3,7 +3,7 @@ import Navigation from '../navigation/Navigation';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import * as cartItemsActions from '../../store/cart';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Delivery() {
@@ -16,17 +16,6 @@ function Delivery() {
             dispatch(cartItemsActions.deleteCartItem(item));
         });
     }, [dispatch, allCartItems]);
-
-    const itemsQuantity = () => {
-        let cartQuantity = 0;
-        debugger
-        Object.values(initialCartItems).map(item => {
-            cartQuantity += item.quantity
-        })
-
-        return cartQuantity
-    };
-
 
     return(
         <>

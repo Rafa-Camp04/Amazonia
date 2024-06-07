@@ -26,7 +26,8 @@ function ProductShow() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(cartItemsActions.createCartItem(product));
-        navigate('/order-placed')
+        // navigate('/order-placed')
+        navigate('/')
     }
 
     const dollarOrCents = (dollarOrCents) => {
