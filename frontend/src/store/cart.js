@@ -28,11 +28,10 @@ export const removeCartItem = (cart_item) => ({
 })
 
 // Thunk actions
-export const createCartItem = (item) => async (dispatch) => {
 
+export const createCartItem = (item) => async (dispatch) => {
     const product_id = item.id;
     const quantity = 1;
-
     const response = await csrfFetch('/api/cart_items', {
       method: 'POST',
       body: JSON.stringify({
@@ -40,7 +39,6 @@ export const createCartItem = (item) => async (dispatch) => {
         quantity
       })
     })
-
     const data = await response.json();
     dispatch(addItem(data));
     return response

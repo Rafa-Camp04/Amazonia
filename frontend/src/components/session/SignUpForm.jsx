@@ -60,63 +60,39 @@ function SignupForm() {
             <form onSubmit={handleSubmit}>
 
               <h1>Create account</h1>
-
-              <label className='sign-in-form-label'>Email</label>
-              <br/>
-
+              <label className='sign-in-form-label'>Email</label> <br/>
               <input
                 className='sign-up-form-input'
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              />
-              <br/>
-              <br/>
-
-              <label className='sign-in-form-label'>Password</label>
-              <br/>
-
+              /> <br/><br/>
+              <label className='sign-in-form-label'>Password</label> <br/>
               <input
                 className='sign-up-form-input'
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-              />
-              <br/>
-              <br/>
-
-              <label className='sign-in-form-label'>Re-enter password</label>
-              <br/>
-
+              /> <br/><br/>
+              <label className='sign-in-form-label'>Re-enter password</label> <br/>
               <input
                 className='sign-up-form-input'
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-              />
-              <br/>
-              <br/>
-
-              <button className='sign-up-form-button' type="submit">Sign Up</button>
-              <br/>
-
-              <br/>
-              <br/>
-
-              <div id='text-under-form'><p>By continuing, you agree to Amazonia&apos;s Conditions of Use and Privacy Notice.</p></div>
-
-              <br/>
-              <br/>
-              <br/>
-
+              /> <br/><br/>
+              <button className='sign-up-form-button' type="submit">Sign Up</button> <br/><br/><br/>
+              <div id='text-under-form'><p>By continuing, you agree to Amazonia&apos;s Conditions of Use and Privacy Notice.</p></div> <br/><br/><br/>
               <div id='text-with-link'>
                 <p>Already have an account? <Link to='/login'>Sign In</Link></p>
               </div>
+
             </form>
           </div>
+          
         </div>
 
         <br/>

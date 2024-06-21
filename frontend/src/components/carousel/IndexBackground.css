@@ -1,0 +1,38 @@
+#carousel-index-background {
+    width: 1500px;
+    overflow: hidden;
+}
+
+#slides-container {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slide-carousel-index-background {
+    min-width: 100%;
+    height: auto;
+}
+
+#arrows-div {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+}
+
+.index-carousel-arrow-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 84px;
+    height: 250px;
+    cursor: pointer;
+}
+
+.arrow-icon {
+    width: 34px;
+    height: 52px;
+}

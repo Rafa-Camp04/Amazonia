@@ -56,7 +56,7 @@ body {
     margin-top: 15px;
 }
 
-#center-content {
+#sign-in-main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -192,7 +192,7 @@ h5 {
     padding: 14px 18px 14px 63px;
 }
 
-#alert-heading {
+#alert-header {
     color: #c40000;
     font-size: 17px;
     padding-bottom: 6px;

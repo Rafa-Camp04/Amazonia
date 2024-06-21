@@ -29,7 +29,7 @@ function Cart() {
     const priceSum = () => {
         let priceSum = 0;
         let strPriceSum
-
+        
         Object.values(allCartItems).map(item => {
             const product = allProducts[item.productId];
 
@@ -42,7 +42,6 @@ function Cart() {
             const newPrice = parseInt(stringPrice, 10)
             priceSum += newPrice * item.quantity
 
-
             strPriceSum = String(priceSum)
             strPriceSum = strPriceSum.split('')
                 if (strPriceSum.length > 2) {
@@ -51,7 +50,6 @@ function Cart() {
                     strPriceSum = ['0', '.', ...strPriceSum];
                 }
             strPriceSum = strPriceSum.join('');
-
         });
 
         return strPriceSum
@@ -79,29 +77,28 @@ function Cart() {
             return(
 
                 <div key={item.id}>
-                    <div className='cart-item-div'>
 
+                    <div className='cart-item-div'>
                         <div className='cart-item-image-section'>
                             <Link className='cart-item-header-link' to={`/products/${product.id}`}>
                                 <img className='cart-item-image' src={`${product?.photoUrl}`} alt={product?.name || 'Cart item'} />
                             </Link>
                         </div>
-
                         <div className='cart-item-information'>
                             <div>
                                 <Link className='cart-item-header-link' to={`/products/${product.id}`}>
                                     <h2 className='cart-item-header'>{product.name}</h2>
                                 </Link>
                             </div>
-
                             <div className='cart-item-delivery-information'>
                                 <span className='in-stock'>In Stock</span>
                                 <p className='cart-item-delivery-information-paragraph'>Same-Day</p>
-                                <p className='cart-item-delivery-information-paragraph'>FREE delivery <span className='cart-item-delivery-information-bold-text'>Tomorrow 2 PM - 6 PM</span></p>
+                                <p className='cart-item-delivery-information-paragraph'>
+                                    FREE delivery 
+                                    <span className='cart-item-delivery-information-bold-text'>Tomorrow 2 PM - 6 PM</span>
+                                </p>
                             </div>
-
                             <div className='cart-item-buttons-div'>
-
                                 <select className='quantity-dropdown' onChange={(e) => updateQuantityHandler(e, item)}>
                                     <option value="">Qty: {item.quantity}</option>
                                     <option value="1" >1</option>
@@ -115,19 +112,13 @@ function Cart() {
                                     <option value="9" >9</option>
                                     <option value="10" >10</option>
                                 </select>
-
                                 <div className='separator-between-quantity-delete-buttons'></div>
-
                                 <span className='delete-cart-item-button' onClick={() => deleteItemHandler(item)}>Delete</span>
-
                             </div>
-                        
                         </div>
-
                         <div className='cart-item-price-div'>
                             <p className='cart-item-price-paragraph'>${product.price}</p>
                         </div>
-
                     </div>
 
                     <div className='division-between-sections'></div>

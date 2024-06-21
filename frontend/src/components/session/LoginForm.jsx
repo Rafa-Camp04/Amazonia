@@ -57,60 +57,51 @@ function LoginForm() {
         <Link to={'/'}><img className='black-logo' src={amazonBlackLogo} /></Link>
       </div>
 
-      <div id='center-content'>
+      <div id='sign-in-main-content'>
 
         {errors.length > 0 && (
           <div className='error-div'>
             <div id='inner-error-div'>
-              <h4 id='alert-heading'>There was a problem</h4>
+              <h4 id='alert-header'>There was a problem</h4>
               <ul className='error-text'>
                 {errors.map(error => <li key={error}>{error}</li>)}
               </ul>
             </div>
           </div>
         )}
-
         <div className='sign-in-block'>
           <form onSubmit={handleSubmit}>
-
             <h1>Sign in</h1>
-
-            <label className='sign-in-form-label'>Email</label>
-            <br/>
-
+            <label className='sign-in-form-label'>Email</label><br/>
             <input
               className='sign-in-form-input'
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-            />
-            <br/>
-            <br/>
-
-            <label className='sign-in-form-label'>Password</label>
-            <br/>
-
+            /><br/><br/>
+            <label className='sign-in-form-label'>Password</label><br/>
             <input
               className='sign-in-form-input'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-            />
-            <br/>
-            <br/>
-
-            <button className='sign-in-form-button' type="submit">Sign In</button>
-            <br/>
-            <br/>
-            <button type='button' className='sign-in-form-button' onClick={handleDemoUserLogin}>Demo User</button>
-
-            <br/>
-            <br/>
-
-            <div id='text-under-form'><p>By continuing, you agree to Amazonia&apos;s Conditions of Use and Privacy Notice.</p></div>
-
+            /><br/><br/>
+            <button 
+              className='sign-in-form-button' 
+              type="submit">
+              Sign In
+            </button><br/><br/>
+            <button 
+              type='button' 
+              className='sign-in-form-button' 
+              onClick={handleDemoUserLogin}>
+              Demo User
+            </button><br/><br/>
+            <div id='text-under-form'>
+              <p>By continuing, you agree to Amazonia&apos;s Conditions of Use and Privacy Notice.</p>
+            </div>
           </form>
         </div>
 
