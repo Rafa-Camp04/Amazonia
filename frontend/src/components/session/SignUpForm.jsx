@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignUpForm.css';
-import amazonBlackLogo from '../../../../frontend/media/amazonia-logo-black.png';
+import amazonBlackLogo from '/media/amazonia-logo-black.png';
 
 function SignupForm() {
   const dispatch = useDispatch();

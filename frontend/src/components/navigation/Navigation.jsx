@@ -2,10 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import {RiSearchLine} from 'react-icons/ri';
 import './Navigation.css'
-import amazoniaLogo from '../../../../frontend/media/amazonia-logo-white.png';
-import linkedinLogo from '../../../../frontend/media/linkedin-icon.png';
-import githubLogo from '../../../../frontend/media/github-icon.png';
-import cartIcon from '../../../../frontend/media/cart-icon.png';
+import amazoniaLogo from '/media/amazonia-logo-white.png';
+import linkedinLogo from '/media/linkedin-icon.png';
+import githubLogo from '/media/github-icon.png';
+import cartIcon from '/media/cart-icon.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';

@@ -17,7 +17,7 @@ h1 {
 
 @font-face {
     font-family: amazonEmber;
-    src: url(../../../../frontend/media/amazon-ember/Amazon-Ember.ttf);
+    src: url(/media/amazon-ember/Amazon-Ember.ttf);
 }
 
 .sign-in-form-label {

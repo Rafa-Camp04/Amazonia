@@ -3,13 +3,13 @@ import './IndexBackground.css';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 const imageUrls = [
-    './media/carousel-1.jpg',
-    './media/carousel-images/carousel-2.jpg',
-    './media/carousel-images/carousel-3.jpg',
-    './media/carousel-images/carousel-4.jpg',
-    './media/carousel-images/carousel-5.jpg',
-    './media/carousel-images/carousel-6.jpg',
-    './media/carousel-images/carousel-7.jpg'
+    '/media/carousel-images/carousel-1.jpg',
+    '/media/carousel-images/carousel-2.jpg',
+    '/media/carousel-images/carousel-3.jpg',
+    '/media/carousel-images/carousel-4.jpg',
+    '/media/carousel-images/carousel-5.jpg',
+    '/media/carousel-images/carousel-6.jpg',
+    '/media/carousel-images/carousel-7.jpg'
 ];
 
 export const IndexCarousel = () => {
