@@ -3,7 +3,7 @@ import './IndexBackground.css';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 const imageUrls = [
-    './media/carousel-images/carousel-1.jpg',
+    './media/carousel-1.jpg',
     './media/carousel-images/carousel-2.jpg',
     './media/carousel-images/carousel-3.jpg',
     './media/carousel-images/carousel-4.jpg',
