@@ -46,7 +46,6 @@ function Navigation() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('FORM IS WORKING, YOU DONT HAVE TO CLICK AGAIN')
   }
 
   const dropDown = sessionUser ? (

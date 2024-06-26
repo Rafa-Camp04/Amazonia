@@ -32,16 +32,17 @@ export const IndexCarousel = () => {
     }
 
     return (
-        <>
+            <>
                 <div id='carousel-index-background'>
                     <div id='slides-container' style={{ transform: `translateX(-${slide * 100}%)` }}>
                         {imageUrls.map((url, idx) => (
-                            <img 
-                                key={url}
-                                src={url}
-                                alt={`slide-${idx}`}
-                                className='slide-carousel-index-background'
-                            />
+                            <div className='slide-wrapper' key={url}>
+                                <img 
+                                    src={url}
+                                    alt={`slide-${idx}`}
+                                    className='slide-carousel-index-background'
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -55,6 +56,6 @@ export const IndexCarousel = () => {
                             <SlArrowRight className='arrow-icon' />
                         </div>
                 </div>
-        </>
-            );
+            </>
+        );
 }

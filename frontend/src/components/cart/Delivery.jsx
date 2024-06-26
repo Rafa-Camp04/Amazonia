@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import * as cartItemsActions from '../../store/cart';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaCheckCircle } from "react-icons/fa";
 
 function Delivery() {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function Delivery() {
                 <div id='main-delivery-div'>
 
                     <div id='order-delivery-message-block'>
-                        <h2 id='order-delivery-message-header'>Order placed, thanks!</h2>
+                        <h2 id='order-delivery-message-header'><FaCheckCircle /> Order placed, thanks!</h2>
                         <p id='order-delivery-confirmation-paragraph'>Confirmation will be sent to your email.</p>
                         <p id='order-quantity-paragraph'>Your items will be shipped to you by Amazonia.com.</p>
 

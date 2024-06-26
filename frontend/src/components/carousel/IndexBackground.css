@@ -5,12 +5,30 @@
 
 #slides-container {
     display: flex;
-    width: 100%;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
 }
 
+.slide-wrapper {
+    position: relative;
+    flex: 0 0 100%;
+}
+
+.slide-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, #E3E6E6 100%);
+    pointer-events: none;
+}
+
+
 .slide-carousel-index-background {
-    min-width: 100%;
+    display: block;
+    width: 100%;
     height: auto;
 }
 

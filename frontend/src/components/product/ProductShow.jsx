@@ -11,6 +11,7 @@ function ProductShow() {
     const {id} = useParams()
     const productId = parseInt(id, 10)
     const navigate = useNavigate()
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(productActions.showItem(productId));
@@ -26,7 +27,12 @@ function ProductShow() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(cartItemsActions.createCartItem(product));
-        navigate('/')
+
+        if (sessionUser === null) {
+            navigate('/login')
+        } else {
+            navigate('/')
+        }
     }
 
     const dollarOrCents = (dollarOrCents) => {
@@ -64,9 +70,9 @@ function ProductShow() {
                         </div>
                         <p id='shipping-paragraph'>
                             Get 
-                            <span className='a-text-bold'>Fast, Free Shipping </span>
+                            <span className='a-text-bold'> Fast, Free Shipping </span>
                             with 
-                            <span className='fake-link-blue'>Amazonia Prime</span>
+                            <span className='fake-link-blue'> Amazonia Prime</span>
                         </p>
                         <p id='free-returns' className='fake-link-blue'>FREE returns</p>
                     </div>
@@ -82,8 +88,8 @@ function ProductShow() {
                             <span className='a-text-bold'>Buy New:</span>
                             <div id='price-block'>
                                 <span id='dollar-sign'>$</span>
-                                <p id='dollar-paragraph'>{dollarOrCents('dollar')}</p>
-                                <p id='cents-paragraph'>{dollarOrCents('cents')}</p>
+                                <p id='price-paragraph'>{dollarOrCents('dollar')}</p>
+                                <p id='cents'>{dollarOrCents('cents')}</p>
                             </div>
                         </div>
                         <p id='shipping-paragraph'>
