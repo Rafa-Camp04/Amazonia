@@ -95,7 +95,7 @@ function Cart() {
                                 <p className='cart-item-delivery-information-paragraph'>Same-Day</p>
                                 <p className='cart-item-delivery-information-paragraph'>
                                     FREE delivery 
-                                    <span className='cart-item-delivery-information-bold-text'>Tomorrow 2 PM - 6 PM</span>
+                                    <span className='cart-item-delivery-information-bold-text'> Tomorrow 2 PM - 6 PM</span>
                                 </p>
                             </div>
                             <div className='cart-item-buttons-div'>

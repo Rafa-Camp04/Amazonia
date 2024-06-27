@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import {RiSearchLine} from 'react-icons/ri';
 import './Navigation.css'
 import amazoniaLogo from '/media/amazonia-logo-white.png';
 import linkedinLogo from '/media/linkedin-icon.png';
@@ -12,6 +11,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import * as cartItemsActions from '../../store/cart';
 import * as reviewsActions from '../../store/review';
+import SearchBar from './SearchBar';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -44,9 +44,6 @@ function Navigation() {
     return cartQuantity
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  }
 
   const dropDown = sessionUser ? (
     <div id='drop-down'>
@@ -81,14 +78,7 @@ function Navigation() {
           </Link>
         </div>
 
-        <div id='nav-search-div'>
-          <form id='nav-bar-search-form' onSubmit={handleSubmit}>
-            <input type='text' id='search-area' placeholder="Search Amazonia"></input>
-            <button type='submit' id='search-button'>
-              <RiSearchLine className='search-icon'/>
-            </button>
-          </form>
-        </div>
+        <SearchBar />
 
         <div className='nav-links'>
 

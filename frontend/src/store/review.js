@@ -84,6 +84,8 @@ export const deleteCartItem = (review) => async (dispatch) => {
 
 // Reducer
 const reviewReducer = (state = {}, action) => {
+    const nextState = {...state};
+
     switch (action.type) {
         case GET_REVIEWS:
             return { ...state, ...action.payload }
@@ -92,7 +94,6 @@ const reviewReducer = (state = {}, action) => {
         case UPDATE_REVIEW:
             return { ...state, ...action.payload };
         case DELETE_REVIEW:
-            const nextState = {...state};
             delete nextState[action.payload.id];
             return nextState
         default:

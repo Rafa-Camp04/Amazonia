@@ -39,6 +39,16 @@ export const indexProducts = () => async (dispatch) => {
     }
 }
 
+export const searchProducts = (searchTerm) => async () => {
+    try {
+      const response = await csrfFetch(`/api/products/search/${searchTerm}`)
+      const data = await response.json();
+      return data;
+    } catch (error){
+      console.error("Failed to find any products:", error)
+    }
+}
+
 // Reducer
 const productsReducer = (state = {}, action) => {
     switch (action.type) {

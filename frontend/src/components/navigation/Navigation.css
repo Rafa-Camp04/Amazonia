@@ -34,55 +34,6 @@
     border-radius: 2px;
 }
 
-#nav-search-div {
-    flex-grow: 1;
-    height: 40px;
-}
-
-#nav-bar-search-form {
-    display: flex;
-    width: 100%;
-    max-width: 1124px;
-}
-
-#nav-bar-search-form:active {
-    outline-style: solid;
-    outline-width: 3px;
-    outline-color: #FF9924;
-    border-radius: 8px;
-}
-
-#search-area {
-    flex-grow: 1;
-    height: 38px;
-    border: none;
-    outline: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding-left: 15px;
-}
-
-#search-button {
-    width: 45px;
-    height: 40px;
-    cursor: pointer;
-    background-color: #FEBD68;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#search-button:hover {
-    background-color: #ffa837;
-}
-
-.search-icon {
-    font-size: 22px;
-}
-
 .nav-links {
     display: flex;
     justify-content: space-evenly;

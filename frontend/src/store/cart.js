@@ -79,6 +79,8 @@ export const deleteCartItem = (item) => async (dispatch) => {
 
 // Reducer
 const cartReducer = (state = {}, action) => {
+    const nextState = {...state};
+
     switch (action.type) {
         case ADD_CART_ITEM:
             return {...state, ...action.payload};
@@ -87,7 +89,6 @@ const cartReducer = (state = {}, action) => {
         case UPDATE_CART_ITEM:
             return { ...state, ...action.payload };
         case DELETE_CART_ITEM:
-            const nextState = {...state};
             delete nextState[action.payload.id];
             return nextState
         default:

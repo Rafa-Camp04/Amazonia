@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './IndexBackground.css';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
