@@ -10,6 +10,7 @@ import ProductShow from './components/product/ProductShow';
 import Cart from './components/cart/Cart';
 import Delivery from './components/cart/Delivery';
 import OrderPlaced from './components/product/OrderPlaced';
+import Search from './components/search/Search';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "order-placed",
         element: <OrderPlaced />
+      },
+      {
+        path: "search",
+        element: <Search />
       }
     ]
   }

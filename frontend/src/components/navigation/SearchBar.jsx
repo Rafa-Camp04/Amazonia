@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './SearchBar.css';
 import { RiSearchLine } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar() {
   const [isBorderAdded, setIsBorderAdded] = useState(false);
   const searchBarRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    navigate('/search')
   };
 
   const handleClick = (e) => {
