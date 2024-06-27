@@ -54,14 +54,13 @@ function ProductsIndex() {
 
     return(
         <div id='product-index-body'>
+                <div id='carousel-block'>
+                    <IndexCarousel />
+                </div>
 
-            <div id='carousel-block'>
-                <IndexCarousel />
-            </div>
-
-            <form id='items-block'>
-                {productIndexItem()}
-            </form>
+                <form id='items-block'>
+                    {productIndexItem()}
+                </form>
         </div>
     )
 
