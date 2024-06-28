@@ -59,7 +59,7 @@ export const createReview = (review, product_id) => async (dispatch) => {
     return response
 }
 
-export const updateCartItemQuantity = (review, newTitle, newBody, newRating) => async (dispatch) => {
+export const editReview = (review, newTitle, newBody, newRating) => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews/${review.id}`, {
         method: 'PATCH',
         body: JSON.stringify({
@@ -74,7 +74,7 @@ export const updateCartItemQuantity = (review, newTitle, newBody, newRating) => 
     return response;
 };
 
-export const deleteCartItem = (review) => async (dispatch) => {
+export const deleteReview = (review) => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews/${review.id}`, {
         method: 'DELETE'
       });
