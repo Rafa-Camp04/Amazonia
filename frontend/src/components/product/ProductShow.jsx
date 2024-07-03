@@ -78,7 +78,13 @@ function ProductShow() {
                     </div>
                     <div className='division-between-sections'></div>
                     <div id='description-section'>
-                        <p>{product.description}</p>
+                        <span id='about-this-item'>About this item</span>
+                        <ul id='product-show-description-list'>
+                            <li className='description-list-item'>{product.description}</li>
+                            <li className='description-list-item'>{product.description2}</li>
+                            <li className='description-list-item'>{product.description3}</li>
+                            <li className='description-list-item'>{product.description4}</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -94,9 +100,9 @@ function ProductShow() {
                         </div>
                         <p id='shipping-paragraph'>
                             Get 
-                            <span className='a-text-bold'>Fast, Free Shipping </span>
+                            <span className='a-text-bold'> Fast, Free Shipping </span>
                             with 
-                            <span className='fake-link-blue'>Amazonia Prime</span>
+                            <span className='fake-link-blue'> Amazonia Prime</span>
                         </p>
                         <p id='free-returns' className='fake-link-blue'>FREE returns</p>
                         <span className='in-stock'>In Stock</span>

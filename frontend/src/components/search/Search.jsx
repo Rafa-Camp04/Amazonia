@@ -6,18 +6,26 @@ import { useEffect } from 'react';
 import * as searchActions from '../../store/searchResult';
 import * as cartItemsActions from '../../store/cart';
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 function Search() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const navigate = useNavigate();
     const { q } = useParams()
+    const [resultLength, setResultLength] = useState(0);
 
     useEffect(() => {
         dispatch(searchActions.searchProducts(q))
     }, [dispatch, q])
 
     const searchResults = useSelector(state => state.searchResult)
+
+    useEffect(() => {
+        if (searchResults) {
+            setResultLength(Object.values(searchResults).length);
+        }
+    }, [searchResults]);
 
     if (searchResults === undefined) {
         return (
@@ -36,13 +44,13 @@ function Search() {
             const handleSubmit = (e) => {
                 e.preventDefault();
                 dispatch(cartItemsActions.createCartItem(product));
-        
+
                 if (sessionUser === null) {
-                    navigate('/login')
+                    navigate('/login');
                 } else {
-                    navigate('/')
+                    navigate('/');
                 }
-            }
+            };
 
             const dollarOrCents = (dollarOrCents) => {
                 let num = product.price.toString()
@@ -70,7 +78,7 @@ function Search() {
                         <div className='search-item-information'>
                             <div>
                                 <Link className='cart-item-header-link' to={`/products/${product.id}`}>
-                                    <h2 className='cart-item-header'>{product.name}</h2>
+                                    <h2 className='search-item-header'>{product.name}</h2>
                                 </Link>
                             </div>
                             <div className='search-item-delivery-information'>
@@ -107,9 +115,9 @@ function Search() {
             
 
                 <div id='search-central-box'>
-                    <div id='search-ad-box'></div>
+                    {/* <div id='search-ad-box'></div> */}
 
-                    <span id='search-header-results'>Results</span>
+                    <span id='search-header-results'>{resultLength} Results</span>
                     <span id='search-under-header'>Check each product page for other buying options.</span>
 
                     {itemDiv()}
