@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         element: <OrderPlaced />
       },
       {
-        path: "search",
+        path: "search/:q",
         element: <Search />
       }
     ]

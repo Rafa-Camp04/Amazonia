@@ -3,19 +3,21 @@ import Navigation from '../navigation/Navigation';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import * as productActions from '../../store/product';
+import * as searchActions from '../../store/searchResult';
 import * as cartItemsActions from '../../store/cart';
+import { useParams } from 'react-router-dom';
 
 function Search() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const navigate = useNavigate();
+    const { q } = useParams()
 
     useEffect(() => {
-        dispatch(productActions.searchProducts());
-    }, [dispatch])
+        dispatch(searchActions.searchProducts(q))
+    }, [dispatch, q])
 
-    const searchResults = useSelector(state => state.searchResults)
+    const searchResults = useSelector(state => state.searchResult)
 
     if (searchResults === undefined) {
         return (

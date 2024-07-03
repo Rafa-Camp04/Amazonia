@@ -3,7 +3,6 @@ import csrfFetch from "./csrf";
 // Action types
 const GET_PRODUCT = 'product/getItem'
 const GET_PRODUCTS = 'product/getProducts'
-const SEARCH_PRODUCTS = 'product/searchProducts';
 
 // Thunk actions
 export const setItem = (item) => ({
@@ -14,11 +13,6 @@ export const setItem = (item) => ({
 export const setProducts = (productsData) => ({
     type: GET_PRODUCTS,
     payload: productsData
-});
-
-export const setSearchResults = (results) => ({
-    type: SEARCH_PRODUCTS,
-    payload: results
 });
 
 export const showItem = (id) => async (dispatch) => {
@@ -45,19 +39,6 @@ export const indexProducts = () => async (dispatch) => {
     }
 }
 
-export const searchProducts = (searchTerm) => async (dispatch) => {
-    try {
-        const response = await csrfFetch(`/api/search/products?q=${searchTerm}`);
-        const data = await response.json();
-
-        dispatch(setSearchResults(data));
-        return data;
-    } catch (error) {
-        console.error("Failed to find any products:", error);
-        throw error;
-    }
-}
-
 // Reducer
 const productsReducer = (state = {}, action) => {
     switch (action.type) {
@@ -65,8 +46,6 @@ const productsReducer = (state = {}, action) => {
             return {...state, [action.payload.product.id]: action.payload.product}
         case GET_PRODUCTS:
             return {...action.payload};
-        case SEARCH_PRODUCTS:
-            return { ...state, searchResults: action.payload };
         default:
             return state;
     }

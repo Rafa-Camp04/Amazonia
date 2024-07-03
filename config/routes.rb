@@ -17,10 +17,6 @@ Rails.application.routes.draw do
     get 'search/products'
   end
 
-  # namespace :api do
-  #   get 'search/products'
-  # end
-
   get '*path', to: "static_pages#frontend_index"
 
 end

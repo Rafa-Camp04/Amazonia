@@ -6,18 +6,20 @@ import { useNavigate } from 'react-router-dom';
 function SearchBar() {
   const [isBorderAdded, setIsBorderAdded] = useState(false);
   const searchBarRef = useRef(null);
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    navigate('/search', {state:{searchTerm}});
+    if (searchTerm.trim() !== '') {
+      navigate(`/search/${searchTerm}`);
+      setSearchTerm('');
+    }
   };
 
   const updateSearch = (e) => {
-    setSearchTerm(e.target.value)
-  }
+    setSearchTerm(e.target.value);
+  };
 
   const handleClick = (e) => {
     if (searchBarRef.current && searchBarRef.current.contains(e.target)) {
@@ -46,7 +48,7 @@ function SearchBar() {
           type='text' 
           id='search-area' 
           placeholder="Search Amazonia"
-          onChange = {updateSearch}
+          onChange={updateSearch}
         />
         <button type='submit' id='search-button'>
           <RiSearchLine className='search-icon' />
