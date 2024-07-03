@@ -47,19 +47,11 @@ export const indexProducts = () => async (dispatch) => {
 
 export const searchProducts = (searchTerm) => async (dispatch) => {
     try {
-        const response = await csrfFetch(`/api/search${searchTerm}`);
+        const response = await csrfFetch(`/api/search/products?q=${searchTerm}`);
         const data = await response.json();
 
-        const newData = {};
-
-        Object.values(data).forEach(product => {
-            if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                newData[product.id] = product;
-            }
-        });
-
-        dispatch(setSearchResults(newData));
-        return newData;
+        dispatch(setSearchResults(data));
+        return data;
     } catch (error) {
         console.error("Failed to find any products:", error);
         throw error;
