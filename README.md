@@ -9,7 +9,7 @@ Amazonia
 * **Languages**: Javascript, Ruby, HTML, and CSS
 * **Frontend**: React-Redux
 * **Database**: PostgreSQL
-* **Hosting**: Heroku
+* **Hosting**: Render
 * **Asset Storage**: AWS Simple Cloud Storage (S3)
 
 Features
