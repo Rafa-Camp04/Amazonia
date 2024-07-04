@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session';
 import './Navigation.css'
 import amazoniaLogo from '/media/amazonia-logo-white.png';
 import linkedinLogo from '/media/linkedin-icon.png';
@@ -12,6 +11,7 @@ import { useState, useEffect } from 'react';
 import * as cartItemsActions from '../../store/cart';
 import * as reviewsActions from '../../store/review';
 import SearchBar from './SearchBar';
+import Modal from './Modal';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -27,11 +27,6 @@ function Navigation() {
 
   }, [dispatch, sessionUser])
 
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-  };
-
   const allCartItems = useSelector(state => state.cartItems);
   
   const cartQuantity = () => {
@@ -43,22 +38,6 @@ function Navigation() {
 
     return cartQuantity
   }
-
-
-  const dropDown = sessionUser ? (
-    <div id='drop-down'>
-      <Link to >
-        <button id='drop-down-button' onClick={logout}>Log Out</button>
-      </Link>
-    </div>
-  ) : (
-    <div id='drop-down'>
-      <Link to={'/login'}>
-        <button id='drop-down-button'>Sign In</button>
-      </Link>
-        <p id='new-costumer-paragraph'>New costumer? <Link to={'/signup'}>Start here.</Link></p>
-    </div>
-  )
 
   const signedIn = sessionUser ? (
     <p id='hello-paragraph'>Hello, User</p>
@@ -103,7 +82,7 @@ function Navigation() {
         </div>
       </div>  
 
-      { isDropDownOpen && dropDown }
+      { isDropDownOpen && Modal }
 
       <div id='category-section'>
       </div>
