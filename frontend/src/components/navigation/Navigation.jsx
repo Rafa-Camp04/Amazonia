@@ -12,6 +12,7 @@ import * as cartItemsActions from '../../store/cart';
 import * as reviewsActions from '../../store/review';
 import SearchBar from './SearchBar';
 import Modal from './Modal';
+import Overlay from './Overlay';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -66,9 +67,10 @@ function Navigation() {
             <a className='pf' href="https://www.linkedin.com/in/rafael-campos-60471a2b2/"><img className='logo-link' src={linkedinLogo} width="40" height="40" /></a>
           </div>
 
-          <div id='account' onMouseEnter={() => setDropDownOpen((dropDown) => !dropDown)}>
+          <div  id='account' onMouseEnter={() => setDropDownOpen(true)} onMouseLeave={() => setDropDownOpen(false)}>
             {signedIn}
             <p id='account-lists-text'>Account & Lists <FontAwesomeIcon icon={faCaretDown} className='drop-down-arrow-down' /></p>
+            {isDropDownOpen && <Modal/>}
           </div>
 
           <Link to={'/cart'}>
@@ -82,7 +84,8 @@ function Navigation() {
         </div>
       </div>  
 
-      { isDropDownOpen && Modal }
+
+      {isDropDownOpen && <Overlay isOpen={isDropDownOpen} />}
 
       <div id='category-section'>
       </div>

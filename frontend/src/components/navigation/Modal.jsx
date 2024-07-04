@@ -21,7 +21,7 @@ function Modal() {
           <Link to={'/login'}>
             <button id='drop-down-button'>Sign In</button>
           </Link>
-            <p id='new-costumer-paragraph'>New costumer? <Link to={'/signup'}>Start here.</Link></p>
+            <p id='new-customer-paragraph'>New customer? <Link to={'/signup'}>Start here.</Link></p>
         </div>
     )
 

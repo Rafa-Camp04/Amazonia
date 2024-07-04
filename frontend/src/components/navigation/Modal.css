@@ -12,6 +12,7 @@
     border-style: solid;
     border-radius: 4px;
     border-width: 0;
+    z-index: 1001;
 }
 
 #drop-down::before {
@@ -39,8 +40,19 @@
     cursor: pointer;
 }
 
-#new-costumer-paragraph {
+#new-customer-paragraph {
     color: #333;
     margin-top: 7px;
     font-size: 11px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
 }
