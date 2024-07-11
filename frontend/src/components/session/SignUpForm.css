@@ -30,3 +30,8 @@
     background-color: #e6bf00;
     cursor: pointer;
 }
+
+#sign-up-center-content {
+    display: flex;
+    justify-content: center;
+}

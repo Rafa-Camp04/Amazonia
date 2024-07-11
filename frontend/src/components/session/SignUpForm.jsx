@@ -43,7 +43,7 @@ function SignupForm() {
           <Link to={'/'}><img className='black-logo' src={amazonBlackLogo} /></Link>
         </div>
 
-        <div id='center-content'>
+        <div id='sign-up-center-content'>
 
           {errors.length > 0 && (
             <div className='error-div'>
