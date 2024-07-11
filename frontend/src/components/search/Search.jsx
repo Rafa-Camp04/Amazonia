@@ -48,7 +48,7 @@ function Search() {
                 if (sessionUser === null) {
                     navigate('/login');
                 } else {
-                    navigate('/');
+                    navigate('/cart');
                 }
             };
 
