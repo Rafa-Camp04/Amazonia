@@ -40,7 +40,7 @@ function LoginForm() {
         else setErrors([res.statusText]);
       });
   }
-
+//
   const handleSignUpRedirect = () => {
     navigate('/signup');
   };
