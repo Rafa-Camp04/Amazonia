@@ -22,7 +22,7 @@ function LoginForm() {
   }, [email, password, isDemoLogin]);
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
-
+//
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
