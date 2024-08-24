@@ -24,7 +24,7 @@ function Modal() {
             <p id='new-customer-paragraph'>New customer? <Link to={'/signup'}>Start here.</Link></p>
         </div>
     )
-
+//
     return(
         <>
             {dropDown}
