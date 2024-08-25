@@ -13,7 +13,7 @@ function Cart() {
     useEffect(() => {
         dispatch(productActions.indexProducts());
     }, [dispatch])
-
+//
     const allCartItems = useSelector(state => state.cartItems)
     const allProducts = useSelector(state => state.products)
 
