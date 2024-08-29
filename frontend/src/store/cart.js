@@ -26,7 +26,7 @@ export const removeCartItem = (cart_item) => ({
     type: DELETE_CART_ITEM,
     payload: cart_item
 })
-//
+
 // Thunk actions
 
 export const createCartItem = (item) => async (dispatch) => {
